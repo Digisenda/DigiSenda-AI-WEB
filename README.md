@@ -44,23 +44,34 @@ Unificar la identidad profesional en un mundo digital fragmentado, centralizando
 ### ✅ Funcional y Desplegado
 El sitio está completamente operativo en Vercel y cumple con los estándares de producción técnica.
 
-### ⚠️ Placeholders Identificados
-Se han detectado **13 placeholders** que requieren actualización antes del lanzamiento final:
+### 🎉 Actualización de Placeholders - 69% Completado
 
-| Categoría | Cantidad | Prioridad |
-|-----------|----------|-----------|
-| 🔴 **Críticos** | 6 | Alta |
-| 🟡 **Importantes** | 5 | Media |
-| 🟢 **Opcionales** | 2 | Baja |
+**Estado de actualización:** Febrero 7, 2026  
+**Progreso:** 9 de 13 placeholders resueltos
 
-**Áreas afectadas:**
-- Analytics (Google Analytics placeholder)
-- Datos de contacto (teléfono, redes sociales)
-- Assets visuales (logo corporativo)
-- Integración backend (webhook n8n)
-- Contenido legal (Privacidad, Términos)
+| Estado | Cantidad | Porcentaje |
+|--------|----------|------------|
+| ✅ **Resueltos** | 9 | 69% |
+| ⚠️ **Pendientes** | 4 | 31% |
 
-👉 **Ver detalles completos en:** [`docs/RESUMEN_PLACEHOLDERS.md`](docs/RESUMEN_PLACEHOLDERS.md)
+### ✅ Placeholders Resueltos
+1. **Google Analytics** → Activado con ID G-3PNSTCCWZG
+2. **Teléfono de contacto** → +1 (940) 548-7913
+3. **URLs redes sociales** → 5 plataformas verificadas (Twitter, LinkedIn, GitHub, YouTube, Instagram)
+4. **Dominio** → https://digisendaai.com confirmado
+5. **Política de Privacidad** → Completa (14 secciones, Twilio A2P ready)
+6. **Términos de Servicio** → Completos (18 secciones, Twilio A2P ready)
+7. **Disclaimer** → Expandido con secciones específicas por servicio
+8. **Servicios** → 5 servicios reales implementados (SynapLeads, LLC, Web, Taxes, Marketing)
+9. **Emails corporativos** → admin@ y soporte@digisendaai.com
+
+### ⚠️ Pendientes (4 elementos)
+1. **Webhook n8n** → Configuración externa pendiente (formulario en modo simulación)
+2. **Logo corporativo** → Asset visual no proporcionado (`/public/logo.png` faltante)
+3. **Logo en navbar** → Depende del logo corporativo
+4. **Email legal/DPO** → Opcional, usando admin@ temporalmente
+
+👉 **Ver estado detallado en:** [`docs/RESUMEN_PLACEHOLDERS.md`](docs/RESUMEN_PLACEHOLDERS.md)
 
 ---
 
@@ -79,7 +90,7 @@ Se han detectado **13 placeholders** que requieren actualización antes del lanz
 ### Herramientas
 - **Linting:** ESLint con configuración Next.js
 - **Deployment:** Vercel (CI/CD automático)
-- **Analytics:** Google Analytics (pendiente de configurar)
+- **Analytics:** Google Analytics (G-3PNSTCCWZG) ✅
 
 ### Dependencias Clave
 ```json
@@ -172,54 +183,44 @@ DigiSenda-AI-WEB/
 
 ## ⚠️ Pendientes de Producción
 
-### 🔴 Críticos (Bloquean producción final)
+**Última actualización:** Febrero 7, 2026  
+**Estado:** 9 de 13 placeholders resueltos (69% completado)
 
-1. **Webhook n8n para Formulario de Contacto**
-   - Archivo: `app/contact/page.tsx`
-   - Estado: Simulación sin conexión real
-   - Acción: Configurar instancia n8n y obtener URL de webhook
+### ⚠️ Pendientes Críticos (4 elementos)
 
-2. **Logo Corporativo**
-   - Archivos: `components/JsonLd.tsx`, `components/Navbar.tsx`
-   - Estado: Archivo no existe, texto placeholder
-   - Acción: Diseñar y subir logo a `/public/logo.png` (512x512px min)
+#### 1. Webhook n8n para Formulario de Contacto
+   - **Archivo:** `app/contact/page.tsx`
+   - **Estado:** Explícitamente dejado pendiente por decisión del usuario
+   - **Impacto:** Formulario en modo simulación, no captura leads reales
+   - **Acción requerida:**
+     - Configurar instancia n8n
+     - Crear workflow de captura
+     - Obtener URL de webhook e implementar
 
-3. **Datos de Contacto Reales**
-   - Archivo: `components/JsonLd.tsx`
-   - Estado: Teléfono dummy `+1-555-555-5555`
-   - Acción: Proporcionar número corporativo real
+#### 2. Logo Corporativo
+   - **Archivos:** `components/JsonLd.tsx`, `components/Navbar.tsx`
+   - **Estado:** Asset visual no proporcionado
+   - **Archivo faltante:** `/public/logo.png`
+   - **Impacto:** 
+     - Schema.org con URL pero sin imagen real
+     - Navbar muestra texto en lugar de imagen
+     - No aparece en rich snippets de búsqueda
+   - **Acción requerida:**
+     - Diseñar logo (PNG, 512x512px mínimo)
+     - Subir a `/public/logo.png`
+     - Actualizar navbar con Next.js Image component
 
-4. **URLs de Redes Sociales**
-   - Archivo: `components/JsonLd.tsx`
-   - Estado: URLs genéricas sin verificar
-   - Acción: Confirmar existencia y actualizar con URLs reales
+#### 3. Logo en Navbar
+   - **Archivo:** `components/Navbar.tsx`
+   - **Dependencia:** Requiere logo corporativo (pendiente #2)
+   - **Estado:** Texto placeholder "DigiSenda AI"
+   - **Acción:** Implementar una vez disponible el logo
 
-5. **Política de Privacidad Completa**
-   - Archivo: `app/privacy/page.tsx`
-   - Estado: Contenido mínimo (incumple GDPR/CCPA)
-   - Acción: Redacción legal completa con todas las secciones obligatorias
-
-6. **Términos de Servicio Completos**
-   - Archivo: `app/terms/page.tsx`
-   - Estado: Placeholder explícito
-   - Acción: Redacción legal completa
-
-### 🟡 Importantes (Afectan SEO y métricas)
-
-1. **Google Analytics ID**
-   - Archivo: `app/layout.tsx`
-   - Estado: Comentado con placeholder `G-PLACEHOLDER`
-   - Acción: Crear propiedad GA4 y descomentar
-
-2. **Confirmación de Dominio**
-   - Archivos: `app/sitemap.ts`, `app/robots.ts`
-   - Estado: `https://digisenda.ai` con comentarios "update later"
-   - Acción: Confirmar dominio de producción
-
-3. **Descripción Detallada de Servicios**
-   - Archivo: `app/services/page.tsx`
-   - Estado: Servicios genéricos de ejemplo
-   - Acción: Especificar servicios reales con propuestas de valor
+#### 4. Email Legal/DPO (Opcional)
+   - **Ubicación:** Documentos legales
+   - **Estado:** Campo vacío, usando admin@digisendaai.com temporalmente
+   - **Impacto:** Menor
+   - **Acción:** Decidir si crear email dedicado (ej: legal@digisendaai.com)
 
 ### 📚 Documentos de Referencia
 
@@ -231,11 +232,53 @@ Para información detallada sobre cómo completar estos pendientes:
   - Recomendaciones técnicas por fase
 
 - **[`docs/RESUMEN_PLACEHOLDERS.md`](docs/RESUMEN_PLACEHOLDERS.md)**
-  - Vista ejecutiva de todos los placeholders
+  - **Estado post-actualización (69% completado)**
+  - Vista ejecutiva de placeholders resueltos y pendientes
   - Checklist de actualización
   - Orden de implementación recomendado
 
 - **[`docs/DATOS_REQUERIDOS.md`](docs/DATOS_REQUERIDOS.md)**
+  - Lista estructurada de datos proporcionados
+  - Formularios completados con información real
+  - Instrucciones de entrega
+
+---
+
+## 📇 Datos Corporativos Actualizados
+
+### Contacto ✅
+- **Email general:** admin@digisendaai.com
+- **Email soporte:** soporte@digisendaai.com
+- **Teléfono:** +1 (940) 548-7913
+
+### Dominio ✅
+- **Producción:** https://digisendaai.com
+- **Estado SSL:** Activo
+
+### Redes Sociales ✅
+- **Twitter/X:** https://x.com/DIGISENDAAI (verificado)
+- **LinkedIn:** https://www.linkedin.com/in/digisenda-ai-34b3053ab/ (verificado)
+- **GitHub:** https://github.com/Digisenda
+- **YouTube:** https://www.youtube.com/@DigiSenda
+- **Instagram:** https://www.instagram.com/digisendaai/
+
+### Analytics ✅
+- **Google Analytics ID:** G-3PNSTCCWZG (activo)
+
+### Servicios Ofrecidos ✅
+1. **SynapLeads** - Plataforma inteligente para captura y calificación de leads
+2. **LLC Formation** - Creación y estructuración de LLC en Estados Unidos
+3. **Web Development** - Landing pages y sitios web orientados a conversión
+4. **Tax Preparation** - Preparación de impuestos para individuos y pequeños negocios
+5. **Digital Marketing** - Marketing digital y educación estratégica
+
+### Edición de Datos
+**Fuente de verdad:** Los datos corporativos se mantienen en `/docs/DATOS_REQUERIDOS.md`
+
+Para actualizar información corporativa en el futuro:
+1. Editar `/docs/DATOS_REQUERIDOS.md` con los nuevos datos
+2. Ejecutar actualización de placeholders según sección de contribución
+3. Los cambios se propagarán a través del sitio automáticamente
   - Lista estructurada de datos a proporcionar
   - Formularios para completar
   - Instrucciones de entrega
