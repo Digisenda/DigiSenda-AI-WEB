@@ -38,7 +38,8 @@ Este documento detalla **TODOS** los datos externos que deben ser proporcionados
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Teléfono: ___________________________________
+Teléfono: 940) 548-7913
+_
 ```
 
 ---
@@ -53,8 +54,8 @@ Teléfono: ___________________________________
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Twitter URL: ___________________________________
-¿Perfil verificado?: [ ] Sí [ ] No
+Twitter URL: https://x.com/DIGISENDAAI
+¿Perfil verificado?: [ X] Sí [ ] No
 ```
 
 #### LinkedIn
@@ -65,23 +66,23 @@ Twitter URL: ___________________________________
 
 **📝 DATO A PROPORCIONAR:**
 ```
-LinkedIn URL: ___________________________________
-¿Página verificada?: [ ] Sí [ ] No
+LinkedIn URL: https://www.linkedin.com/in/digisenda-ai-34b3053ab/
+¿Página verificada?: [ x] Sí [ ] No
 ```
 
 #### Otras Redes (Opcional)
 Si DigiSenda tiene presencia en otras plataformas:
-- GitHub
+- GitHub 
 - YouTube
 - Facebook
 - Instagram
 
 **📝 DATO A PROPORCIONAR:**
 ```
-GitHub: ___________________________________
-YouTube: ___________________________________
-Facebook: ___________________________________
-Instagram: ___________________________________
+GitHub: https://github.com/Digisenda
+YouTube: https://www.youtube.com/@DigiSenda
+Facebook: https://www.facebook.com/settings?tab=profile&section=username
+Instagram: https://www.instagram.com/digisendaai/
 ```
 
 ---
@@ -101,9 +102,9 @@ Instagram: ___________________________________
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Dominio de producción: ___________________________________
-¿Ya está configurado en Vercel?: [ ] Sí [ ] No
-¿SSL activo?: [ ] Sí [ ] No
+Dominio de producción: https://digisendaai.com
+¿Ya está configurado en Vercel?: [ ] Sí [x ] No
+¿SSL activo?: [x ] Sí [ ] No
 ```
 
 ---
@@ -119,9 +120,9 @@ Dominio de producción: ___________________________________
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Email general: ___________________________________
-Email legal/DPO: ___________________________________
-Email soporte: ___________________________________
+Email general: admin@digisendaai.com
+Email legal/DPO: 
+Email soporte: soporte@digisendaai.com
 ```
 
 ---
@@ -140,8 +141,8 @@ Email soporte: ___________________________________
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Google Analytics ID: G-___________________________________
-¿Propiedad ya creada?: [ ] Sí [ ] No
+Google Analytics ID: G-3PNSTCCWZG___________________________________
+¿Propiedad ya creada?: [ x] Sí [ ] No
 ```
 
 ---
@@ -163,10 +164,10 @@ Google Analytics ID: G-___________________________________
 
 **📝 DATOS A PROPORCIONAR:**
 ```
-Webhook URL: ___________________________________
-¿n8n ya está configurado?: [ ] Sí [ ] No
-¿Workflow de contacto creado?: [ ] Sí [ ] No
-Destino de leads: [ ] Email [ ] CRM [ ] Base de datos [ ] Otro: __________
+Webhook URL: DEJARLO PENDIENTE AUN
+¿n8n ya está configurado?: [ ] Sí [X ] No
+¿Workflow de contacto creado?: [ ] Sí [ X] No
+Destino de leads: [ ] Email [ X] CRM [ X] Base de datos [ ] Otro: __________
 ```
 
 **Estructura esperada del payload:**
@@ -265,7 +266,7 @@ OTROS: ___________________________________
 **📝 OPCIONES:**
 ```
 [ ] Redacción legal propia (proporcionar texto completo)
-[ ] Usar plantilla legal estándar (indicar jurisdicción)
+[ X] Usar plantilla legal estándar (indicar jurisdicción) CREAR E INCLUIR LO NECESARIO PARA PASAR VERIFICACION TWILIO A2P
 [ ] Contratar asesoría legal especializada
 ```
 
@@ -296,7 +297,9 @@ OTROS: ___________________________________
 **📝 OPCIONES:**
 ```
 [ ] Redacción legal propia (proporcionar texto completo)
-[ ] Usar plantilla legal estándar
+[ X] Usar plantilla legal estándar 
+CREAR E INCLUIR LO NECESARIO PARA PASAR VERIFICACION TWILIO A2P
+
 [ ] Contratar asesoría legal especializada
 ```
 
@@ -316,7 +319,7 @@ OTROS: ___________________________________
 **📝 DECISIÓN:**
 ```
 [ ] Mantener texto actual
-[ ] Ampliar con (especificar): ___________________________________
+[ X] Ampliar con (especificar): ACTUALIZAR CON LO QUE SE CONSIDERE NECESARIO ACTUALMENTE 
 [ ] Reemplazar completamente (proporcionar nuevo texto)
 ```
 
@@ -360,6 +363,83 @@ Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
 ```
 [Repetir estructura]
 ```
+DATOS DE LOS SERVICIOS.
+
+Nombre: SynapLeads
+Descripción corta (1 línea): 
+Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.
+
+Descripción larga (párrafo): 
+SynapLeads es una plataforma SaaS desarrollada por DigiSenda AI que automatiza la captura, validación y gestión de leads mediante flujos inteligentes y agentes de IA. 
+Está diseñada para negocios que necesitan convertir prospectos en oportunidades reales, integrando formularios, CRM, automatizaciones y live transfer telefónico.
+El sistema prioriza velocidad, trazabilidad y control total del lead desde el primer contacto hasta la conversión.
+
+Propuesta de valor única: 
+Leads calificados y transferidos en tiempo real, con automatización avanzada y control técnico total.
+
+URL de contacto/enlace: ___________________________________
+Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
+
+Nombre: Creación y estructuración de LLC
+Descripción corta (1 línea): 
+Servicio integral para la creación y organización legal de LLC en Estados Unidos.
+
+Descripción larga (párrafo): 
+DigiSenda AI acompaña a emprendedores y pequeños negocios en el proceso completo de creación de su LLC, incluyendo verificación de nombre, filing estatal, estructuración documental y organización inicial.
+El servicio no se limita al registro: se enfoca en dejar una base clara, ordenada y lista para operar, escalar o integrarse con sistemas digitales.
+Cada LLC se documenta de forma replicable y auditable.
+
+Propuesta de valor única: 
+No solo creamos la LLC, la dejamos estructurada y lista para operar correctamente.
+
+URL de contacto/enlace: ___________________________________
+Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
+
+Nombre: Landings y presencia web profesional
+Descripción corta (1 línea): 
+Diseño y despliegue de sitios web y landing pages orientadas a conversión y visibilidad.
+
+Descripción larga (párrafo): 
+DigiSenda AI desarrolla landing pages y sitios web modernos enfocados en conversión, cumplimiento y presencia digital sólida.
+Los proyectos incluyen estructura técnica correcta, despliegue en plataformas modernas, integración con analítica y bases listas para campañas.
+No se trata solo de diseño visual, sino de crear activos digitales funcionales que trabajen para el negocio.
+
+Propuesta de valor única: 
+Webs pensadas como activos de negocio, no solo como páginas bonitas.
+
+URL de contacto/enlace: ___________________________________
+Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
+
+
+Nombre: Preparación de Taxes en Estados Unidos
+Descripción corta (1 línea): 
+Servicio profesional de preparación de impuestos para individuos y pequeños negocios en EE.UU.
+
+Descripción larga (párrafo): 
+DigiSenda AI ofrece servicios de preparación de taxes enfocados en cumplimiento, optimización legal y correcta interpretación de cada caso.
+El servicio se apoya en análisis técnico, simulaciones de escenarios y explicación clara al cliente, priorizando decisiones defendibles ante el IRS.
+Está dirigido principalmente a individuos, familias y pequeños negocios que buscan claridad, orden y acompañamiento real durante la temporada fiscal.
+
+Propuesta de valor única: 
+No solo se prepara el tax return, se explica y se estructura con criterio técnico.
+
+URL de contacto/enlace: ___________________________________
+Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
+
+Nombre: Marketing digital y educación estratégica en la web
+Descripción corta (1 línea): 
+Servicios de marketing digital y divulgación educativa enfocados en crecimiento sostenible.
+
+Descripción larga (párrafo): 
+DigiSenda AI ofrece servicios de marketing digital combinados con educación práctica para emprendedores y negocios que desean entender y controlar su presencia online.
+El enfoque incluye creación de contenido educativo, estructuración de presencia web, orientación en embudos, automatización básica y uso estratégico de herramientas digitales e IA.
+No se trata de vender humo ni gestión opaca, sino de enseñar, acompañar y construir activos digitales reales.
+
+Propuesta de valor única: 
+Marketing con criterio técnico y educación real, no dependencia de una agencia.
+
+URL de contacto/enlace: ___________________________________
+Precio indicativo (opcional): [ ] Mostrar [ ] No mostrar
 
 ---
 
@@ -382,11 +462,11 @@ author: "Nombre del autor"
 
 **📝 PREGUNTA:**
 ```
-¿Desean agregar más posts iniciales?: [ ] Sí [ ] No
+¿Desean agregar más posts iniciales?: [ x] Sí [ ] No
 
-Si sí, cantidad aproximada: ___________________________________
+Si sí, cantidad aproximada: genera 2 post por cada servicio, uno de bienvenida y el segundo de temas referentes y actuales del mismo
 Temas sugeridos: 
-1. ___________________________________
+1. 
 2. ___________________________________
 3. ___________________________________
 ```
@@ -406,10 +486,10 @@ Temas sugeridos:
 **📝 DATOS A PROPORCIONAR (si aplica):**
 ```
 Dirección: ___________________________________
-Ciudad/Estado: ___________________________________
+Ciudad/Estado: san Antonio Texas
 Código Postal: ___________________________________
 País: ___________________________________
-Horarios: ___________________________________
+Horarios: abierto todo el dia
 ```
 
 ---
@@ -421,7 +501,7 @@ Horarios: ___________________________________
   - Imagen OG (1200x630px)
   - Descripción específica para social media
 
-**📝 ASSET A PROPORCIONAR:**
+**📝 ASSET A PROPORCIONAR:** MARCALO COMO PENDIENTE
 ```
 [ ] Imagen Open Graph (1200x630px, PNG/JPG)
 [ ] Texto social personalizado
@@ -429,7 +509,7 @@ Horarios: ___________________________________
 
 ---
 
-### 6.3 Integración con CRM
+### 6.3 Integración con CRM  MARCALO COMO PENDIENTE
 - **Tipo:** Opcional
 - **Plataformas comunes:** HubSpot, Salesforce, Pipedrive
 - **Uso:** Sincronizar leads del formulario de contacto
@@ -447,15 +527,15 @@ Preferencia: [ ] Integrar [ ] Solo email [ ] Solo n8n
 - **Tipo:** Según jurisdicción (obligatorio en EU)
 - **Uso:** Compliance GDPR
 - **Consideraciones:**
-  - ¿Opera en Europa?
-  - ¿Usa cookies de terceros?
-  - ¿Google Analytics requiere consentimiento?
+  - ¿Opera en Europa? NO OPERA
+  - ¿Usa cookies de terceros? NO
+  - ¿Google Analytics requiere consentimiento? NO
 
 **📝 DECISIÓN:**
 ```
 [ ] Implementar cookie banner
 [ ] No necesario por ahora
-[ ] Evaluar más tarde
+[X ] Evaluar más tarde
 
 Si se implementa, preferencia:
 [ ] Banner simple (solo aviso)
@@ -470,13 +550,13 @@ Si se implementa, preferencia:
 Use esta lista para rastrear la recopilación de datos:
 
 ### Corporativos
-- [ ] Teléfono de contacto
-- [ ] URLs de redes sociales (Twitter, LinkedIn)
-- [ ] Dominio de producción confirmado
-- [ ] Emails corporativos (contacto, legal, soporte)
+- [ x] Teléfono de contacto
+- [x ] URLs de redes sociales (Twitter, LinkedIn)
+- [ x] Dominio de producción confirmado
+- [x ] Emails corporativos (contacto, legal, soporte)
 
 ### Configuración
-- [ ] Google Analytics ID
+- [ x] Google Analytics ID
 - [ ] Webhook n8n URL
 - [ ] Variables de entorno (si aplican)
 
@@ -485,12 +565,12 @@ Use esta lista para rastrear la recopilación de datos:
 - [ ] Favicon (opcional)
 
 ### Contenido Legal
-- [ ] Política de Privacidad completa
-- [ ] Términos de Servicio completos
-- [ ] Revisión de Disclaimer
+- [x ] Política de Privacidad completa
+- [x ] Términos de Servicio completos
+- [ x] Revisión de Disclaimer
 
 ### Contenido de Marketing
-- [ ] Descripción detallada de servicios reales
+- [ X] Descripción detallada de servicios reales
 - [ ] Posts de blog adicionales (opcional)
 
 ### Opcionales

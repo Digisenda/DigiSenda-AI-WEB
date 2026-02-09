@@ -17,21 +17,30 @@ export default function ServicesPage() {
             </header>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "2rem" }}>
-                {/* Example Services - placeholders for future child brands */}
                 <ServiceCard
-                    title="Consulting"
-                    description="Strategic advisory for digital transformation."
-                    link="/contact?service=consulting"
+                    title="SynapLeads"
+                    description="Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real."
+                    link="/contact?service=synapleads"
                 />
                 <ServiceCard
-                    title="Development"
-                    description="High-performance web and software engineering."
-                    link="/contact?service=development"
+                    title="LLC Formation"
+                    description="Servicio integral para la creación y organización legal de LLC en Estados Unidos."
+                    link="/contact?service=llc"
                 />
                 <ServiceCard
-                    title="AI Integration"
-                    description="Leveraging Large Language Models for business efficiency."
-                    link="/contact?service=ai"
+                    title="Web Development"
+                    description="Diseño y despliegue de sitios web y landing pages orientadas a conversión y visibilidad."
+                    link="/contact?service=web"
+                />
+                <ServiceCard
+                    title="Tax Preparation"
+                    description="Servicio profesional de preparación de impuestos para individuos y pequeños negocios en EE.UU."
+                    link="/contact?service=taxes"
+                />
+                <ServiceCard
+                    title="Digital Marketing"
+                    description="Servicios de marketing digital y divulgación educativa enfocados en crecimiento sostenible."
+                    link="/contact?service=marketing"
                 />
             </div>
         </div>

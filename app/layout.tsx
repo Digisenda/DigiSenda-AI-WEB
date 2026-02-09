@@ -27,8 +27,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <JsonLd />
-        {/* Placeholder GA ID - user to update later */}
-        {/* <GoogleAnalytics gaId="G-PLACEHOLDER" /> */}
+        <GoogleAnalytics gaId="G-3PNSTCCWZG" />
       </body>
     </html>
   );

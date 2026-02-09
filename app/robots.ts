@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://digisenda.ai/sitemap.xml', // Update with actual domain later
+        sitemap: 'https://digisendaai.com/sitemap.xml',
     };
 }

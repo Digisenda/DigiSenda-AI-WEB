@@ -3,7 +3,7 @@ import { getSortedPostsData } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const posts = getSortedPostsData();
-    const baseUrl = 'https://digisenda.ai'; // Update with actual domain
+    const baseUrl = 'https://digisendaai.com';
 
     const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
