@@ -3,15 +3,18 @@ export default function JsonLd() {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "DigiSenda AI",
-        "url": "https://digisenda.ai",
-        "logo": "https://digisenda.ai/logo.png",
+        "url": "https://digisendaai.com",
+        "logo": "https://digisendaai.com/logo.png",
         "sameAs": [
-            "https://twitter.com/digisenda",
-            "https://linkedin.com/company/digisenda"
+            "https://x.com/DIGISENDAAI",
+            "https://www.linkedin.com/in/digisenda-ai-34b3053ab/",
+            "https://github.com/Digisenda",
+            "https://www.youtube.com/@DigiSenda",
+            "https://www.instagram.com/digisendaai/"
         ],
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-555-555-5555",
+            "telephone": "+1-940-548-7913",
             "contactType": "Customer Service"
         }
     };
