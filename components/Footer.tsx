@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Linkedin, Github, Youtube, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
@@ -10,9 +11,15 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-5 mb-16">
                     <div className="col-span-1 md:col-span-2 relative">
-                        <div className="flex items-center gap-2 mb-4 group inline-flex">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neural-blue to-ai-cyan grid place-items-center">
-                                <span className="text-white font-space font-bold">D</span>
+                        <div className="flex items-center gap-3 mb-4 group inline-flex">
+                            <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+                                <Image 
+                                    src="/logo.png" 
+                                    alt="DigiSenda AI Logo" 
+                                    width={40} 
+                                    height={40}
+                                    className="w-full h-full object-contain p-1"
+                                />
                             </div>
                             <span className="font-space font-bold tracking-tight text-white group-hover:text-ai-cyan transition-colors">
                                 DigiSenda AI

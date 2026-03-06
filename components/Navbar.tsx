@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -27,8 +28,15 @@ export default function Navbar() {
             >
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neural-blue to-ai-cyan grid place-items-center">
-                            <span className="text-white font-space font-bold text-lg">D</span>
+                        <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+                            <Image 
+                                src="/logo.png" 
+                                alt="DigiSenda AI Logo" 
+                                width={40} 
+                                height={40}
+                                className="w-full h-full object-contain p-1"
+                                priority
+                            />
                         </div>
                         <span className="font-space font-bold tracking-tight text-white group-hover:text-ai-cyan transition-colors text-lg">
                             DigiSenda AI
