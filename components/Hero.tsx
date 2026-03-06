@@ -59,7 +59,7 @@ export default function Hero() {
                 {/* Mini Pill */}
                 <div className="hero-anim inline-flex items-center gap-2 px-3 py-1 mb-8 rounded-full border border-ai-cyan/30 bg-ai-cyan/10 text-ai-cyan text-sm font-mono backdrop-blur-sm">
                     <span className="w-2 h-2 rounded-full bg-ai-cyan animate-pulse-slow" />
-                    <span>Infraestructura Digital Activa</span>
+                    <span>Servicios empresariales conectados</span>
                 </div>
 
                 {/* Heading */}
@@ -69,18 +69,18 @@ export default function Hero() {
 
                 {/* Subtext */}
                 <p className="hero-anim max-w-2xl text-lg md:text-xl text-silver/80 mb-10 text-balance leading-relaxed">
-                    DigiSenda AI ayuda a emprendedores a crear su empresa, construir su presencia digital, generar clientes y gestionar sus impuestos mediante tecnología avanzada.
+                    DigiSenda AI ayuda a emprendedores y pequeños negocios a crear su empresa, construir su presencia digital, generar clientes y organizar sus impuestos en Estados Unidos.
                 </p>
 
                 {/* Buttons */}
                 <div className="hero-anim flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
                     <a href="/services" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white text-deep-space font-semibold rounded-full flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                        Ver Servicios
+                        Ver servicios
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
 
                     <a href="/contact" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 group backdrop-blur-md hover:bg-white/10">
-                        Contáctanos
+                        Hablar con nosotros
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>

@@ -31,10 +31,10 @@ export default function Trust() {
         <section ref={trustRef} className="py-24 px-6 relative z-10 w-full max-w-7xl mx-auto">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-4">
-                    Diseñado para la <span className="text-gradient">escala absoluta</span>
+                    Una base <span className="text-gradient">sólida para crecer</span> con orden
                 </h2>
                 <p className="text-silver/80 max-w-2xl mx-auto font-inter">
-                    Nuestra infraestructura respalda operaciones desde el día uno hasta tu primer millón en MRR.
+                    Servicios diseñados para ayudar a emprender con más claridad y confianza.
                 </p>
             </div>
 
@@ -43,7 +43,7 @@ export default function Trust() {
                 <div className="trust-card p-8 rounded-3xl bg-[#0F1523] border border-white/5 hover:border-neural-blue/50 transition-colors">
                     <Brain className="w-8 h-8 text-neural-blue mb-4" />
                     <h3 className="font-space font-semibold text-white mb-2 text-lg">Tecnología</h3>
-                    <p className="text-sm text-silver/70">Orquestadores n8n dedicados y flujos automatizados para minimizar trabajo manual.</p>
+                    <p className="text-sm text-silver/70">Sistemas automatizados y flujos optimizados para minimizar trabajo manual y maximizar resultados.</p>
                 </div>
 
                 {/* Experiencia */}
@@ -73,11 +73,11 @@ export default function Trust() {
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-ai-cyan to-transparent opacity-50" />
                 <h2 className="text-4xl md:text-5xl font-space font-bold text-white mb-6 pt-4">Comienza tu negocio hoy</h2>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#llc" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-neural-blue text-white font-semibold rounded-full flex items-center justify-center gap-2 drop-shadow-lg">
+                    <a href="/services" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-neural-blue text-white font-semibold rounded-full flex items-center justify-center gap-2 drop-shadow-lg">
                         Crear LLC
                     </a>
-                    <a href="#advisor" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 backdrop-blur-md">
-                        Hablar con un asesor
+                    <a href="/contact" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 backdrop-blur-md">
+                        Hablar con nosotros
                     </a>
                 </div>
             </div>
