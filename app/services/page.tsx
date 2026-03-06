@@ -29,7 +29,7 @@ export default function ServicesPage() {
 
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                    {/* DigiSenda AI Tax Service - OPERATIONAL */}
+                    {/* DigiSenda AI Tax Service */}
                     <div className="glass-panel p-8 hover:border-neural-blue/50 transition-all group">
                         <div className="flex items-start justify-between mb-4">
                             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-neural-blue/30 flex items-center justify-center">
@@ -45,11 +45,11 @@ export default function ServicesPage() {
                         </h3>
                         
                         <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicio profesional de preparación de impuestos para individuos y pequeños negocios en Estados Unidos. Enfoque técnico y cumplimiento IRS.
+                            Servicio profesional de preparación de impuestos para individuos y pequeños negocios.
                         </p>
                         
                         <a 
-                            href="https://digisenda-ai-tax-service.vercel.app" 
+                            href="https://tax.digisendaai.com/" 
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-ai-cyan hover:text-neural-blue transition-colors font-mono text-sm"
@@ -60,30 +60,36 @@ export default function ServicesPage() {
                     </div>
 
                     {/* SynapLeads */}
-                    <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
+                    <div className="glass-panel p-8 hover:border-neural-blue/50 transition-all group">
                         <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-neural-blue/30 flex items-center justify-center">
                                 <span className="text-2xl">🎯</span>
                             </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 border border-white/20 text-silver/50 text-xs font-mono">
-                                Próximamente
+                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-mono">
+                                ● Operativo
                             </span>
                         </div>
                         
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3">
+                        <h3 className="font-space text-2xl font-semibold text-white mb-3 group-hover:text-ai-cyan transition-colors">
                             SynapLeads
                         </h3>
                         
                         <p className="text-silver/70 mb-6 leading-relaxed">
-                            Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real mediante IA y automatización avanzada.
+                            Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.
                         </p>
                         
-                        <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            En desarrollo
-                        </span>
+                        <a 
+                            href="https://www.synapleads.com/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-ai-cyan hover:text-neural-blue transition-colors font-mono text-sm"
+                        >
+                            Visitar sitio web
+                            <ExternalLink className="w-4 h-4" />
+                        </a>
                     </div>
 
-                    {/* LLC Formation */}
+                    {/* LLC Service */}
                     <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
                         <div className="flex items-start justify-between mb-4">
                             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
@@ -95,19 +101,19 @@ export default function ServicesPage() {
                         </div>
                         
                         <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            LLC Formation
+                            DigiSenda AI LLC Service
                         </h3>
                         
                         <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicio integral para la creación y estructuración legal de LLC en Estados Unidos. Incluye registro estatal, EIN y documentación completa.
+                            Servicio integral para creación y organización legal de LLC en Estados Unidos.
                         </p>
                         
                         <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            En desarrollo
+                            llc.digisendaai.com
                         </span>
                     </div>
 
-                    {/* Web Development */}
+                    {/* Web Services */}
                     <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
                         <div className="flex items-start justify-between mb-4">
                             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
@@ -119,19 +125,19 @@ export default function ServicesPage() {
                         </div>
                         
                         <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            Web Development
+                            DigiSenda AI Web Services
                         </h3>
                         
                         <p className="text-silver/70 mb-6 leading-relaxed">
-                            Diseño y despliegue de landing pages y sitios web profesionales orientados a conversión, visibilidad y presencia digital sólida.
+                            Diseño y despliegue de sitios web y landing pages orientadas a conversión.
                         </p>
                         
                         <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            En desarrollo
+                            web.digisendaai.com
                         </span>
                     </div>
 
-                    {/* Digital Marketing */}
+                    {/* Marketing Service */}
                     <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
                         <div className="flex items-start justify-between mb-4">
                             <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
@@ -143,39 +149,15 @@ export default function ServicesPage() {
                         </div>
                         
                         <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            Digital Marketing
+                            DigiSenda AI Marketing Service
                         </h3>
                         
                         <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicios de marketing digital y educación estratégica enfocados en crecimiento sostenible y control del ecosistema digital.
+                            Servicios de marketing digital orientados al crecimiento sostenible de negocios.
                         </p>
                         
                         <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            En desarrollo
-                        </span>
-                    </div>
-
-                    {/* Business Consulting */}
-                    <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
-                                <span className="text-2xl">💡</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 border border-white/20 text-silver/50 text-xs font-mono">
-                                Próximamente
-                            </span>
-                        </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            Business Consulting
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Consultoría estratégica para emprendedores que desean lanzar o escalar operaciones en Estados Unidos con enfoque técnico y práctico.
-                        </p>
-                        
-                        <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            En desarrollo
+                            business.digisendaai.com
                         </span>
                     </div>
                 </div>

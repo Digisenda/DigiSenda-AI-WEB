@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import Ecosystem from '../components/Ecosystem';
-import Technology from '../components/Technology';
+import SuccessStories from '../components/SuccessStories';
 import Process from '../components/Process';
 import Trust from '../components/Trust';
 
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <Ecosystem />
-      <Technology />
+      <SuccessStories />
       <Process />
       <Trust />
     </>

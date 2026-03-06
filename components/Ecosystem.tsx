@@ -70,7 +70,7 @@ export default function Ecosystem() {
                     Un <span className="text-gradient">ecosistema completo</span> para emprendedores
                 </h2>
                 <p className="text-silver/80 max-w-2xl mx-auto font-inter">
-                    Una solución unificada en una sola infraestructura tecnológica que escala contigo.
+                    Servicios conectados para ayudarte a crear, organizar y hacer crecer tu negocio en Estados Unidos.
                 </p>
             </div>
 

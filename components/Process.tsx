@@ -7,10 +7,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
-    { num: '01', title: 'Crear empresa', desc: 'Registro de LLC, obtención de EIN y apertura de cuenta bancaria.' },
-    { num: '02', title: 'Construir presencia digital', desc: 'Diseño web técnico y listado de Google para tu negocio.' },
-    { num: '03', title: 'Generar clientes', desc: 'Despliegue de SynapLeads para generar flujo mediante anuncios y SEO.' },
-    { num: '04', title: 'Escalar negocio', desc: 'Contabilidad activa, soporte fiscal y orquestación constante.' }
+    { num: '01', title: 'Crear empresa', desc: 'Registro de LLC y estructura inicial.' },
+    { num: '02', title: 'Construir presencia digital', desc: 'Diseño web y presencia en Google.' },
+    { num: '03', title: 'Generar clientes', desc: 'Marketing y captación de oportunidades.' },
+    { num: '04', title: 'Escalar negocio', desc: 'Organización fiscal y soporte.' }
 ];
 
 export default function Process() {
@@ -52,9 +52,9 @@ export default function Process() {
         <section id="process" ref={processRef} className="py-24 px-6 relative z-10 w-full max-w-4xl mx-auto">
             <div className="text-center mb-20">
                 <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-4">
-                    Cómo funciona DigiSenda
+                    Así funciona DigiSenda AI
                 </h2>
-                <p className="text-silver/80 font-inter">Cuatro pilares de integración. Cero fricción.</p>
+                <p className="text-silver/80 font-inter">Te ayudamos a poner tu negocio en marcha y hacerlo crecer con más claridad.</p>
             </div>
 
             <div className="process-container relative pl-8 md:pl-0">
