@@ -11,20 +11,15 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-5 mb-16">
                     <div className="col-span-1 md:col-span-2 relative">
-                        <div className="flex items-center gap-3 mb-4 group inline-flex">
-                            <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
-                                <Image 
-                                    src="/logo.png" 
-                                    alt="DigiSenda AI Logo" 
-                                    width={40} 
-                                    height={40}
-                                    className="w-full h-full object-contain p-1"
-                                />
-                            </div>
-                            <span className="font-space font-bold tracking-tight text-white group-hover:text-ai-cyan transition-colors">
-                                DigiSenda AI
-                            </span>
-                        </div>
+                        <Link href="/" className="inline-block mb-4 group">
+                            <Image 
+                                src="/logo.png" 
+                                alt="DigiSenda AI Logo" 
+                                width={180} 
+                                height={48}
+                                className="h-12 w-auto object-contain brightness-100 contrast-125 group-hover:brightness-110 transition-all"
+                            />
+                        </Link>
 
                         <p className="text-silver/60 text-sm max-w-sm mb-6">
                             Hub central del ecosistema de servicios profesionales para emprendedores. Servicios conectados para ayudarte a crear, organizar y hacer crecer tu negocio en Estados Unidos.

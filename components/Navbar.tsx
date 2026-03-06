@@ -28,19 +28,14 @@ export default function Navbar() {
             >
                 <div className="flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-3 group">
-                        <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
-                            <Image 
-                                src="/logo.png" 
-                                alt="DigiSenda AI Logo" 
-                                width={40} 
-                                height={40}
-                                className="w-full h-full object-contain p-1"
-                                priority
-                            />
-                        </div>
-                        <span className="font-space font-bold tracking-tight text-white group-hover:text-ai-cyan transition-colors text-lg">
-                            DigiSenda AI
-                        </span>
+                        <Image 
+                            src="/logo.png" 
+                            alt="DigiSenda AI Logo" 
+                            width={120} 
+                            height={32}
+                            className="h-8 w-auto object-contain brightness-100 contrast-125"
+                            priority
+                        />
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-8 font-mono text-base font-medium">
