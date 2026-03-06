@@ -11,13 +11,14 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-5 mb-16">
                     <div className="col-span-1 md:col-span-2 relative">
-                        <Link href="/" className="inline-block mb-4 group">
+                        <Link href="/" className="inline-block mb-6 group">
                             <Image 
                                 src="/logo.png" 
                                 alt="DigiSenda AI Logo" 
-                                width={180} 
-                                height={48}
-                                className="h-12 w-auto object-contain brightness-100 contrast-125 group-hover:brightness-110 transition-all"
+                                width={240} 
+                                height={64}
+                                className="h-16 md:h-20 w-auto object-contain brightness-110 contrast-125 group-hover:brightness-125 transition-all"
+                                unoptimized
                             />
                         </Link>
 

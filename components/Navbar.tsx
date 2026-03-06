@@ -31,10 +31,11 @@ export default function Navbar() {
                         <Image 
                             src="/logo.png" 
                             alt="DigiSenda AI Logo" 
-                            width={120} 
-                            height={32}
-                            className="h-8 w-auto object-contain brightness-100 contrast-125"
+                            width={200} 
+                            height={54}
+                            className="h-12 md:h-14 w-auto object-contain brightness-110 contrast-125"
                             priority
+                            unoptimized
                         />
                     </Link>
 
