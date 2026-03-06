@@ -33,17 +33,17 @@ export default function Navbar() {
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-6 font-mono text-sm">
-                    <Link href="#ecosystem" className="text-silver hover:text-white transition-colors">Ecosistema</Link>
-                    <Link href="#synapleads" className="text-silver hover:text-white transition-colors">Tecnología</Link>
-                    <Link href="#process" className="text-silver hover:text-white transition-colors">Proceso</Link>
+                    <Link href="/services" className="text-silver hover:text-white transition-colors">Servicios</Link>
+                    <Link href="/about" className="text-silver hover:text-white transition-colors">Nosotros</Link>
+                    <Link href="/blog" className="text-silver hover:text-white transition-colors">Blog</Link>
                 </nav>
 
                 <Link
-                    href="#contact"
+                    href="/contact"
                     className="rounded-full px-5 py-2 text-sm font-medium text-white border border-white/10 relative overflow-hidden group magnetic-btn"
                 >
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-neural-blue/20 to-ai-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span className="relative z-10">Crear Empresa</span>
+                    <span className="relative z-10">Contacto</span>
                 </Link>
             </div>
         </header>
