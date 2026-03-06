@@ -74,13 +74,13 @@ export default function Hero() {
 
                 {/* Buttons */}
                 <div className="hero-anim flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
-                    <a href="#create-llc" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white text-deep-space font-semibold rounded-full flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                        Crear mi empresa
+                    <a href="/services" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white text-deep-space font-semibold rounded-full flex items-center justify-center gap-2 group hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                        Ver Servicios
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
 
-                    <a href="#ecosystem" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 group backdrop-blur-md hover:bg-white/10">
-                        Explorar servicios
+                    <a href="/contact" className="magnetic-btn w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white font-semibold rounded-full flex items-center justify-center gap-2 group backdrop-blur-md hover:bg-white/10">
+                        Contáctanos
                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>

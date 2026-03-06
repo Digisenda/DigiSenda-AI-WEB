@@ -20,8 +20,7 @@ export default function Footer() {
                         </div>
 
                         <p className="text-silver/60 text-sm max-w-sm mb-6">
-                            Plataforma tecnológica corporativa. Lanzamiento de LLCs, ecosistemas digitales,
-                            captación de leads mediante SynapLeads y contabilidad B2B.
+                            Hub central del ecosistema de servicios profesionales para emprendedores. Orquestamos soluciones especializadas en creación de empresas, presencia digital, tecnología y finanzas.
                         </p>
 
                         {/* Active System Indicator */}
@@ -37,10 +36,10 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-space font-semibold mb-4 text-sm uppercase tracking-wider">Soluciones</h4>
                         <ul className="space-y-2 text-sm text-silver/60">
-                            <li><Link href="#incorporation" className="hover:text-ai-cyan transition-colors">Incorporación de Empresa</Link></li>
-                            <li><Link href="#digital" className="hover:text-ai-cyan transition-colors">Presencia Digital</Link></li>
-                            <li><Link href="#synapleads" className="hover:text-ai-cyan transition-colors">SynapLeads</Link></li>
-                            <li><Link href="#finance" className="hover:text-ai-cyan transition-colors">Impuestos y Finanzas</Link></li>
+                            <li><Link href="/services#tax" className="hover:text-ai-cyan transition-colors">Preparación de Impuestos</Link></li>
+                            <li><Link href="/services#llc" className="hover:text-ai-cyan transition-colors">Creación de LLC</Link></li>
+                            <li><Link href="/services#web" className="hover:text-ai-cyan transition-colors">Desarrollo Web</Link></li>
+                            <li><Link href="/services#marketing" className="hover:text-ai-cyan transition-colors">Marketing Digital</Link></li>
                         </ul>
                     </div>
 
@@ -48,7 +47,8 @@ export default function Footer() {
                         <h4 className="text-white font-space font-semibold mb-4 text-sm uppercase tracking-wider">Empresa</h4>
                         <ul className="space-y-2 text-sm text-silver/60">
                             <li><Link href="/about" className="hover:text-ai-cyan transition-colors">Nosotros</Link></li>
-                            <li><Link href="/blog" className="hover:text-ai-cyan transition-colors">Casos de Éxito</Link></li>
+                            <li><Link href="/services" className="hover:text-ai-cyan transition-colors">Servicios</Link></li>
+                            <li><Link href="/blog" className="hover:text-ai-cyan transition-colors">Blog</Link></li>
                             <li><Link href="/contact" className="hover:text-ai-cyan transition-colors">Contacto</Link></li>
                         </ul>
                     </div>
@@ -60,6 +60,7 @@ export default function Footer() {
                     <div className="flex items-center gap-4 mt-4 md:mt-0">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacidad</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Términos</Link>
+                        <Link href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</Link>
                         <div className="ml-4 flex items-center gap-3">
                             <a href="https://twitter.com/digisendaai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-4 h-4" /></a>
                             <a href="https://linkedin.com/company/digisenda-ai" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>

@@ -71,22 +71,22 @@ export default function Technology() {
                     </div>
 
                     <h2 className="tech-text text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white mb-6 leading-tight">
-                        Conoce <span className="text-gradient">SynapLeads</span>
+                        Tecnología del <span className="text-gradient">Ecosistema</span>
                     </h2>
 
                     <p className="tech-text text-silver/80 text-lg mb-8 leading-relaxed max-w-lg">
-                        Nuestra plataforma tecnológica propietaria. No usamos herramientas desconectadas; orquestamos un flujo inteligente que captura, califica y distribuye oportunidades de negocio directamente hacia tu equipo.
+                        Orquestamos servicios especializados mediante plataformas tecnológicas propietarias como SynapLeads. Cada herramienta está diseñada para resolver desafíos específicos del ecosistema de negocio.
                     </p>
 
                     <ul className="tech-text space-y-4 mb-10 w-full max-w-lg font-mono text-sm text-silver/70">
-                        <li className="flex items-center gap-3"><Target className="w-5 h-5 text-ai-cyan" /> Atracción dirigida por Inteligencia Artificial</li>
-                        <li className="flex items-center gap-3"><Zap className="w-5 h-5 text-ai-cyan" /> Calificación de prospectos en tiempo real</li>
-                        <li className="flex items-center gap-3"><Users className="w-5 h-5 text-ai-cyan" /> CRM Integrado y orquestación con n8n</li>
-                        <li className="flex items-center gap-3"><TrendingUp className="w-5 h-5 text-ai-cyan" /> Análisis predictivo de retorno (ROI)</li>
+                        <li className="flex items-center gap-3"><Target className="w-5 h-5 text-ai-cyan" /> Automatización inteligente de procesos</li>
+                        <li className="flex items-center gap-3"><Zap className="w-5 h-5 text-ai-cyan" /> Integración entre servicios del ecosistema</li>
+                        <li className="flex items-center gap-3"><Users className="w-5 h-5 text-ai-cyan" /> Orquestación centralizada con n8n</li>
+                        <li className="flex items-center gap-3"><TrendingUp className="w-5 h-5 text-ai-cyan" /> Análisis y métricas en tiempo real</li>
                     </ul>
 
-                    <a href="#synapleads-demo" className="tech-text magnetic-btn px-8 py-4 bg-neural-blue/20 hover:bg-neural-blue border border-neural-blue font-semibold rounded-full text-white transition-all duration-300">
-                        Explorar SynapLeads
+                    <a href="/services" className="tech-text magnetic-btn px-8 py-4 bg-neural-blue/20 hover:bg-neural-blue border border-neural-blue font-semibold rounded-full text-white transition-all duration-300">
+                        Ver Servicios
                     </a>
                 </div>
 
