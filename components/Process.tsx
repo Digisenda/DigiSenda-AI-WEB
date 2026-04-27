@@ -3,14 +3,39 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Search, Layers, Rocket, BarChart3 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
-    { num: '01', title: 'Crear empresa', desc: 'Registro de LLC y estructura inicial.' },
-    { num: '02', title: 'Construir presencia digital', desc: 'Diseño web y presencia en Google.' },
-    { num: '03', title: 'Generar clientes', desc: 'Marketing y captación de oportunidades.' },
-    { num: '04', title: 'Escalar negocio', desc: 'Organización fiscal y soporte.' }
+    {
+        num: '01',
+        icon: Search,
+        title: 'Diagnóstico inicial',
+        desc: 'Entendemos tu situación, tus objetivos y tu urgencia. Trazamos el plan correcto para tu caso específico.',
+        detail: 'Llamada sin costo',
+    },
+    {
+        num: '02',
+        icon: Layers,
+        title: 'Estructuración legal',
+        desc: 'Formamos tu LLC, obtenemos tu EIN y te dejamos listo para operar correctamente desde el primer día.',
+        detail: 'LLC + EIN en ~3 semanas',
+    },
+    {
+        num: '03',
+        icon: Rocket,
+        title: 'Activación digital',
+        desc: 'Construimos tu sitio web, tu perfil de Google y lanzamos tu primera campaña para traer clientes reales.',
+        detail: 'Web + Marketing activos',
+    },
+    {
+        num: '04',
+        icon: BarChart3,
+        title: 'Crecimiento con orden',
+        desc: 'Presentamos tus impuestos, ordenamos tus finanzas y te acompañamos mientras tu negocio escala.',
+        detail: 'Taxes + soporte continuo',
+    },
 ];
 
 export default function Process() {
@@ -18,28 +43,28 @@ export default function Process() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            // Connect steps line animation
             gsap.fromTo('.process-line-fill',
-                { height: '0%' },
+                { scaleX: 0 },
                 {
-                    height: '100%',
+                    scaleX: 1,
+                    transformOrigin: 'left center',
                     scrollTrigger: {
-                        trigger: '.process-container',
-                        start: 'top 50%',
-                        end: 'bottom 50%',
-                        scrub: true,
-                    }
+                        trigger: '.process-track',
+                        start: 'top 60%',
+                        end: 'bottom 60%',
+                        scrub: 1,
+                    },
                 }
             );
 
-            gsap.from('.step-item', {
+            gsap.from('.step-card', {
                 scrollTrigger: {
-                    trigger: '.process-container',
-                    start: 'top 75%',
+                    trigger: '.process-track',
+                    start: 'top 80%',
                 },
-                x: -40,
+                y: 36,
                 opacity: 0,
-                stagger: 0.2,
+                stagger: 0.15,
                 duration: 0.8,
                 ease: 'power3.out',
             });
@@ -49,50 +74,89 @@ export default function Process() {
     }, []);
 
     return (
-        <section id="process" ref={processRef} className="py-24 px-6 relative z-10 w-full max-w-4xl mx-auto">
-            <div className="text-center mb-20">
-                <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-4">
-                    Así funciona DigiSenda AI
+        <section
+            id="process"
+            ref={processRef}
+            className="py-28 px-6 relative z-10 w-full max-w-7xl mx-auto"
+        >
+            {/* Section header */}
+            <div className="text-center mb-16">
+                <p className="section-label mb-5 justify-center">
+                    <span className="w-5 h-px bg-ai-cyan/40 inline-block" />
+                    Cómo trabajamos
+                    <span className="w-5 h-px bg-ai-cyan/40 inline-block" />
+                </p>
+                <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-5 tracking-tight leading-tight">
+                    Tu camino,{' '}
+                    <span className="text-gradient">paso a paso</span>
                 </h2>
-                <p className="text-silver/80 font-inter">Te ayudamos a poner tu negocio en marcha y hacerlo crecer con más claridad.</p>
+                <p className="text-silver/60 max-w-xl mx-auto text-base leading-relaxed">
+                    Un proceso claro y coordinado, desde la primera llamada hasta que tu negocio esté creciendo con orden.
+                </p>
             </div>
 
-            <div className="process-container relative pl-8 md:pl-0">
-                {/* Animated Line (Desktop Center / Mobile Left) */}
-                <div className="absolute top-0 bottom-0 left-[20px] md:left-1/2 w-[2px] bg-white/10 -translate-x-1/2">
-                    <div className="process-line-fill w-full bg-gradient-to-b from-neural-blue to-ai-cyan" />
+            {/* Track connector (desktop only) */}
+            <div className="process-track hidden lg:block relative mb-8 px-8">
+                <div className="relative h-[2px] bg-white/[0.07] rounded-full mx-auto" style={{ maxWidth: '900px' }}>
+                    <div className="process-line-fill absolute inset-0 rounded-full"
+                        style={{ background: 'linear-gradient(to right, #2563EB, #06B6D4)' }} />
                 </div>
+            </div>
 
-                <div className="space-y-12">
-                    {steps.map((step, index) => (
-                        <div key={index} className="step-item relative flex flex-col md:flex-row items-start md:items-center justify-between group">
-
-                            {/* Left Side (Empty on even, text on odd) */}
-                            <div className={`hidden md:block w-1/2 pr-12 text-right ${index % 2 !== 0 ? 'md:order-1' : ''}`}>
-                                {index % 2 === 0 && (
-                                    <div>
-                                        <h3 className="font-space text-2xl font-bold text-white mb-2">{step.title}</h3>
-                                        <p className="text-silver/70 leading-relaxed text-sm">{step.desc}</p>
-                                    </div>
-                                )}
+            {/* Steps grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                {steps.map((step, index) => (
+                    <div
+                        key={index}
+                        className="step-card premium-card p-7 flex flex-col relative group"
+                        style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%)' }}
+                    >
+                        {/* Step number + icon row */}
+                        <div className="flex items-center justify-between mb-6">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-neural-blue/40 group-hover:bg-neural-blue/10 transition-all duration-300">
+                                <step.icon className="w-4.5 h-4.5 text-silver/60 group-hover:text-neural-blue-light transition-colors duration-300" />
                             </div>
-
-                            {/* Node Center */}
-                            <div className={`absolute left-[20px] md:left-1/2 -translate-x-1/2 w-10 h-10 rounded-full border-4 border-[#0B0F19] bg-white/10 group-hover:bg-neural-blue transition-colors flex items-center justify-center font-mono text-xs font-bold text-white ${index % 2 !== 0 ? 'md:order-2' : ''} z-10`}>
+                            <span className="font-mono text-[0.65rem] font-bold tracking-widest text-white/15 select-none">
                                 {step.num}
-                            </div>
-
-                            {/* Right Side (Text on even, empty on odd) */}
-                            <div className={`w-full md:w-1/2 pl-12 ${index % 2 !== 0 ? 'md:order-3' : ''}`}>
-                                <div className={`${index % 2 === 0 ? 'md:hidden' : ''}`}>
-                                    <h3 className="font-space text-2xl font-bold text-white mb-2">{step.title}</h3>
-                                    <p className="text-silver/70 leading-relaxed text-sm">{step.desc}</p>
-                                </div>
-                            </div>
-
+                            </span>
                         </div>
-                    ))}
-                </div>
+
+                        {/* Content */}
+                        <h3 className="font-space text-base font-semibold text-white mb-2.5 leading-snug">
+                            {step.title}
+                        </h3>
+                        <p className="text-sm text-silver/55 leading-relaxed mb-5 flex-1">
+                            {step.desc}
+                        </p>
+
+                        {/* Detail tag */}
+                        <div className="inline-flex items-center gap-1.5 mt-auto">
+                            <span className="w-1.5 h-1.5 rounded-full bg-ai-cyan/50 flex-shrink-0" />
+                            <span className="text-[0.65rem] font-mono text-ai-cyan/60 leading-none">
+                                {step.detail}
+                            </span>
+                        </div>
+
+                        {/* Connector arrow for desktop (except last) */}
+                        {index < steps.length - 1 && (
+                            <div className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-5 h-5 rounded-full bg-[#0B0F19] border border-white/10 items-center justify-center">
+                                <div className="w-1.5 h-1.5 rounded-full bg-neural-blue/50" />
+                            </div>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            {/* CTA hint */}
+            <div className="text-center mt-10">
+                <a
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-sm font-mono text-silver/50 hover:text-ai-cyan transition-colors duration-300"
+                >
+                    ¿Por dónde empezamos?
+                    <span className="text-ai-cyan/50">→</span>
+                    Cuéntanos tu caso
+                </a>
             </div>
         </section>
     );

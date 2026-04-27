@@ -3,43 +3,59 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Building2, Globe2, LineChart, FileText } from 'lucide-react';
+import { Building2, Globe2, LineChart, FileText, ArrowUpRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ecosystemData = [
     {
+        num: '01',
         icon: Building2,
         title: 'Crear empresa',
         sub: 'LLC + EIN',
-        desc: 'Registramos y estructuramos tu LLC en EE.UU. de forma rápida y legal.',
-        color: 'from-blue-500/20 to-blue-500/0',
-        border: 'border-blue-500/30'
+        desc: 'Registramos tu LLC en EE.UU., obtenemos tu EIN y te dejamos estructurado para operar desde el primer día.',
+        href: 'https://llc.digisendaai.com/',
+        accentBg: 'rgba(59,130,246,0.14)',
+        accentBorder: 'rgba(59,130,246,0.22)',
+        iconColor: '#60A5FA',
+        glowColor: 'rgba(59,130,246,0.2)',
     },
     {
+        num: '02',
         icon: Globe2,
         title: 'Presencia digital',
         sub: 'Web + Google Business',
-        desc: 'Desarrollamos una identidad digital sólida y optimizamos tu empresa.',
-        color: 'from-cyan-500/20 to-cyan-500/0',
-        border: 'border-cyan-500/30'
+        desc: 'Diseñamos tu sitio web profesional y optimizamos tu perfil de Google para que tus clientes te encuentren.',
+        href: 'https://web.digisendaai.com/',
+        accentBg: 'rgba(6,182,212,0.14)',
+        accentBorder: 'rgba(6,182,212,0.22)',
+        iconColor: '#22D3EE',
+        glowColor: 'rgba(6,182,212,0.2)',
     },
     {
+        num: '03',
         icon: LineChart,
-        title: 'Clientes',
+        title: 'Generación de clientes',
         sub: 'Marketing + Leads',
-        desc: 'Atraemos y calificamos nuevas oportunidades a traves de campañas data-driven.',
-        color: 'from-indigo-500/20 to-indigo-500/0',
-        border: 'border-indigo-500/30'
+        desc: 'Activamos campañas y flujos que atraen y califican oportunidades reales para tu negocio.',
+        href: 'https://business.digisendaai.com/',
+        accentBg: 'rgba(139,92,246,0.14)',
+        accentBorder: 'rgba(139,92,246,0.22)',
+        iconColor: '#A78BFA',
+        glowColor: 'rgba(139,92,246,0.2)',
     },
     {
+        num: '04',
         icon: FileText,
-        title: 'Finanzas',
+        title: 'Finanzas e impuestos',
         sub: 'Taxes + Bookkeeping',
-        desc: 'Mantenemos tus finanzas ordenadas y reportamos los impuestos con precisión.',
-        color: 'from-purple-500/20 to-purple-500/0',
-        border: 'border-purple-500/30'
-    }
+        desc: 'Mantenemos tus finanzas en orden y presentamos tus impuestos correctamente, sin sorpresas.',
+        href: 'https://tax.digisendaai.com/',
+        accentBg: 'rgba(16,185,129,0.12)',
+        accentBorder: 'rgba(16,185,129,0.20)',
+        iconColor: '#34D399',
+        glowColor: 'rgba(16,185,129,0.18)',
+    },
 ];
 
 export default function Ecosystem() {
@@ -50,12 +66,12 @@ export default function Ecosystem() {
             gsap.from('.eco-card', {
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: 'top 75%',
+                    start: 'top 78%',
                 },
-                y: 40,
+                y: 44,
                 opacity: 0,
-                duration: 0.8,
-                stagger: 0.15,
+                duration: 0.85,
+                stagger: 0.13,
                 ease: 'power3.out',
             });
         }, sectionRef);
@@ -64,32 +80,90 @@ export default function Ecosystem() {
     }, []);
 
     return (
-        <section id="ecosystem" ref={sectionRef} className="py-24 px-6 relative z-10 w-full max-w-7xl mx-auto">
+        <section
+            id="ecosystem"
+            ref={sectionRef}
+            className="py-28 px-6 relative z-10 w-full max-w-7xl mx-auto"
+        >
+            {/* Section header */}
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-4">
-                    Un <span className="text-gradient">ecosistema completo</span> para emprendedores
+                <p className="section-label mb-5 justify-center">
+                    <span className="w-5 h-px bg-ai-cyan/40 inline-block" />
+                    Nuestro ecosistema
+                    <span className="w-5 h-px bg-ai-cyan/40 inline-block" />
+                </p>
+                <h2 className="text-3xl md:text-5xl font-space font-bold text-white mb-5 tracking-tight leading-tight">
+                    Todo lo que necesita tu negocio,{' '}
+                    <span className="text-gradient">en un solo lugar</span>
                 </h2>
-                <p className="text-silver/80 max-w-2xl mx-auto font-inter">
-                    Servicios conectados para ayudarte a crear, organizar y hacer crecer tu negocio en Estados Unidos.
+                <p className="text-silver/60 max-w-xl mx-auto text-base leading-relaxed">
+                    Cuatro servicios diseñados para trabajar juntos. Puedes empezar por donde necesites.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Cards grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {ecosystemData.map((item, i) => (
                     <div
                         key={i}
-                        className={`eco-card glass-panel bg-gradient-to-b ${item.color} p-8 flex flex-col hover:border-white/30 transition-colors group cursor-default h-full`}
+                        className="eco-card premium-card p-7 flex flex-col relative overflow-hidden group h-full"
+                        style={{
+                            background: `linear-gradient(160deg, ${item.accentBg} 0%, rgba(255,255,255,0.02) 60%)`,
+                            borderColor: item.accentBorder,
+                        }}
                     >
-                        <div className={`w-12 h-12 rounded-2xl border ${item.border} bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                            <item.icon className="w-6 h-6 text-white" />
+                        {/* Watermark number */}
+                        <span className="absolute top-5 right-5 font-mono text-[0.6rem] font-bold tracking-widest text-white/10 select-none">
+                            {item.num}
+                        </span>
+
+                        {/* Icon container */}
+                        <div
+                            className="w-11 h-11 rounded-xl flex items-center justify-center mb-6 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+                            style={{
+                                background: `rgba(255,255,255,0.05)`,
+                                border: `1px solid ${item.accentBorder}`,
+                                boxShadow: `0 0 20px ${item.glowColor}`,
+                            }}
+                        >
+                            <item.icon className="w-5 h-5" style={{ color: item.iconColor }} />
                         </div>
 
-                        <h3 className="font-space text-2xl font-semibold text-white mb-2">{item.title}</h3>
-                        <p className="font-mono text-xs text-ai-cyan mb-4 uppercase tracking-wider">{item.sub}</p>
+                        {/* Title */}
+                        <h3 className="font-space text-lg font-semibold text-white mb-1.5 leading-snug">
+                            {item.title}
+                        </h3>
 
-                        <p className="text-sm text-silver/70 leading-relaxed mt-auto">
+                        {/* Service label */}
+                        <p
+                            className="font-mono text-[0.58rem] uppercase tracking-[0.18em] mb-4"
+                            style={{ color: item.iconColor, opacity: 0.75 }}
+                        >
+                            {item.sub}
+                        </p>
+
+                        {/* Description */}
+                        <p className="text-sm text-silver/60 leading-relaxed mt-auto mb-5">
                             {item.desc}
                         </p>
+
+                        {/* CTA link */}
+                        <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs font-mono transition-all duration-300 opacity-40 group-hover:opacity-90 group-hover:gap-2"
+                            style={{ color: item.iconColor }}
+                        >
+                            Conocer más
+                            <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+
+                        {/* Bottom accent line — extends on hover */}
+                        <div
+                            className="absolute bottom-0 left-0 h-[2px] w-0 group-hover:w-full transition-all duration-500 ease-out"
+                            style={{ background: `linear-gradient(to right, ${item.iconColor}70, transparent)` }}
+                        />
                     </div>
                 ))}
             </div>
