@@ -7,11 +7,21 @@ const nextConfig: NextConfig = {
   // },
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   images: {
-    // Permite usar SVGs como placeholders del hero en /public/img.
-    // Endurecemos con CSP para que ningún SVG remoto pueda ejecutar scripts.
+    // Permitimos SVGs locales (placeholders) con CSP estricta.
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Permitimos Unsplash como origen remoto SOLO mientras la imagen del hero
+    // sea un placeholder. En producción reemplazar por foto IA o stock propia
+    // alojada localmente en /public/img/hero/founder.jpg y eliminar este
+    // remotePattern.
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 

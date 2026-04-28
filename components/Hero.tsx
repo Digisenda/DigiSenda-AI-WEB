@@ -155,14 +155,20 @@ export default function Hero() {
 
                     {/* ── Columna derecha: composición humana 2.5D ── */}
                     <div className="relative mt-16 lg:mt-0">
-                        {/* Foto editorial — placeholder SVG hasta reemplazo IA */}
+                        {/*
+                          * Foto editorial — placeholder Unsplash temporal.
+                          * Para producción, reemplazar por foto IA / propia
+                          * alojada en /public/img/hero/founder.jpg, cambiar
+                          * el src a "/img/hero/founder.jpg", quitar el
+                          * remotePattern de Unsplash en next.config.ts y
+                          * actualizar IMAGE_PROMPTS.md.
+                          */}
                         <div className="hero-photo-wrap relative aspect-[4/5] w-full max-w-[560px] mx-auto rounded-[1.5rem] overflow-hidden shadow-card-premium">
                             <Image
-                                src="/img/hero/founder-placeholder.svg"
-                                alt="Emprendedor en su pequeño negocio en Estados Unidos"
+                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80&auto=format&fit=crop&crop=faces"
+                                alt="Emprendedora en su pequeño negocio en Estados Unidos"
                                 fill
                                 priority
-                                unoptimized
                                 sizes="(min-width: 1024px) 560px, 90vw"
                                 className="object-cover"
                             />

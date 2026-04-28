@@ -26,8 +26,8 @@ export default function Navbar() {
             <header
                 className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-400 rounded-full border ${
                     scrolled
-                        ? 'w-[92%] md:w-[780px] bg-[#070B14]/80 backdrop-blur-xl border-white/[0.09] py-2.5 px-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-                        : 'w-full md:w-[980px] bg-transparent border-transparent py-3.5 px-6'
+                        ? 'w-[92%] md:w-[780px] bg-[#0B0F19]/92 backdrop-blur-xl border-white/[0.09] py-2.5 px-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+                        : 'w-[94%] md:w-[980px] bg-[#0B0F19]/85 backdrop-blur-md border-white/[0.10] py-3 px-6 shadow-[0_8px_28px_rgba(14,26,31,0.18)]'
                 }`}
             >
                 <div className="flex items-center justify-between">

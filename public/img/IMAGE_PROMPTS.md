@@ -33,11 +33,33 @@ Este archivo lista cada imagen humana / mockup que el sitio necesita, con prompt
 
 ---
 
-## Hero (Fase 2 — actualmente con placeholder SVG)
+## Hero (Fase 2 — placeholder Unsplash temporal)
 
-### `/public/img/hero/founder.jpg` *(reemplaza `founder-placeholder.svg`)*
+### Estado actual
 
-**Ruta usada en**: `components/Hero.tsx`
+`components/Hero.tsx` está apuntando a una foto Unsplash hot-linked como
+placeholder temporal:
+
+```
+https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80&auto=format&fit=crop&crop=faces
+```
+
+Esto es una **muleta de preview**, NO un asset definitivo. Permite ver el
+hero con un rostro humano real mientras se prepara la imagen final IA.
+
+### Reemplazo definitivo (acción requerida antes de producción)
+
+1. Generar la foto con IA siguiendo el prompt de abajo (Midjourney / Flux /
+   Ideogram), o seleccionar una foto stock licenciada.
+2. Guardar como `/public/img/hero/founder.jpg` (o `.webp` / `.avif`).
+3. En `components/Hero.tsx`, cambiar el `src` de la URL Unsplash a
+   `/img/hero/founder.jpg`.
+4. En `next.config.ts`, **eliminar** el `remotePatterns` de
+   `images.unsplash.com` (queda fuera de Unsplash en producción).
+5. Borrar `public/img/hero/founder-placeholder.svg` (placeholder SVG inicial,
+   ya no se usa).
+
+### Prompt sugerido (Midjourney / Flux / Ideogram)
 
 **Prompt sugerido (Midjourney / Flux / Ideogram):**
 > Editorial portrait of a hispanic small business owner in their warm, sunlit storefront in the United States — a small bakery, salon, or cozy office. Mid-30s woman OR mid-40s man, confident relaxed pose, slight three-quarter angle, looking off-camera with quiet pride. Soft golden hour light streaming through a side window, warm ivory and terracotta tones, shallow depth of field, 35mm film aesthetic, photorealistic. Background slightly blurred showing wood shelves, plants, neutral product packaging. No visible third-party logos. Composition leaves negative space on the right side for floating UI elements. Aspect 4:5.
