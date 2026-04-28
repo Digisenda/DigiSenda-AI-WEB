@@ -3,11 +3,13 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ArrowRight, ChevronRight } from 'lucide-react';
+import HeroEcosystemVisual from './HeroEcosystemVisual';
 
-const metrics = [
-    { value: '100+', label: 'Emprendedores activos' },
-    { value: '3 sem.', label: 'Tiempo prom. a LLC activa' },
-    { value: '4-en-1', label: 'Servicios integrados' },
+// Qualitative pillars — no numeric metrics
+const pillars = [
+    { label: 'Coordinado', desc: 'Un solo equipo,\nno cuatro proveedores' },
+    { label: 'Profesional', desc: 'Legal, fiscal y digital\ncon criterio' },
+    { label: 'Seguro', desc: 'Cumplimiento estatal\ny federal sin sorpresas' },
 ];
 
 export default function Hero() {
@@ -15,20 +17,17 @@ export default function Hero() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.set('.hero-anim', { y: 28, opacity: 0 });
+            gsap.set('.hero-anim', { y: 22, opacity: 0 });
             gsap.set('.hero-bg-grid', { opacity: 0 });
-            gsap.set('.hero-glow-primary', { opacity: 0, scale: 0.75 });
-            gsap.set('.hero-glow-secondary', { opacity: 0, scale: 0.75 });
-            gsap.set('.hero-metric', { y: 16, opacity: 0 });
+            gsap.set('.hero-glow-primary', { opacity: 0, scale: 0.8 });
+            gsap.set('.hero-visual', { opacity: 0, x: 18 });
 
             const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-            tl.to(['.hero-glow-primary', '.hero-glow-secondary'], {
-                opacity: 1, scale: 1, duration: 2.2, stagger: 0.3,
-            }, 0)
-            .to('.hero-bg-grid', { opacity: 1, duration: 1.8 }, 0.1)
-            .to('.hero-anim', { y: 0, opacity: 1, duration: 1, stagger: 0.11 }, 0.25)
-            .to('.hero-metric', { y: 0, opacity: 1, duration: 0.7, stagger: 0.1 }, 1.1);
+            tl.to('.hero-glow-primary', { opacity: 1, scale: 1, duration: 2, }, 0)
+                .to('.hero-bg-grid', { opacity: 1, duration: 1.6 }, 0.1)
+                .to('.hero-anim', { y: 0, opacity: 1, duration: 0.85, stagger: 0.1 }, 0.2)
+                .to('.hero-visual', { opacity: 1, x: 0, duration: 1, ease: 'power2.out' }, 0.5);
         }, containerRef);
 
         return () => ctx.revert();
@@ -37,84 +36,99 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden pt-20"
+            className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-12"
         >
-            {/* ── Background system ── */}
+            {/* ── Background ── */}
             <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
                 {/* Primary glow */}
-                <div className="hero-glow-primary absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full"
-                    style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)' }} />
-
-                {/* Accent glow — offset right */}
-                <div className="hero-glow-secondary absolute top-1/4 right-[8%] w-[420px] h-[420px] rounded-full"
-                    style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%)' }} />
-
-                {/* Precision grid */}
-                <div className="hero-bg-grid absolute inset-0"
-                    style={{
-                        backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)`,
-                        backgroundSize: `4.5rem 4.5rem`,
-                        maskImage: `radial-gradient(ellipse 85% 75% at 50% 35%, black, transparent)`,
-                    }}
+                <div
+                    className="hero-glow-primary absolute top-[35%] left-[25%] -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full"
+                    style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.10) 0%, transparent 70%)' }}
                 />
 
-                {/* Vertical accent beam */}
-                <div className="absolute top-0 left-[55%] w-px h-2/3 bg-gradient-to-b from-transparent via-ai-cyan/8 to-transparent" />
+                {/* Gold warm accent — top-right, very subtle */}
+                <div
+                    className="absolute -top-20 right-0 w-[45%] h-[55%] rounded-full"
+                    style={{ background: 'radial-gradient(ellipse, rgba(212,168,83,0.05) 0%, transparent 65%)' }}
+                />
+
+                {/* Precision grid */}
+                <div
+                    className="hero-bg-grid absolute inset-0"
+                    style={{
+                        backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)`,
+                        backgroundSize: `5rem 5rem`,
+                        maskImage: `radial-gradient(ellipse 90% 80% at 30% 40%, black, transparent)`,
+                    }}
+                />
             </div>
 
             {/* ── Content ── */}
-            <div className="relative z-10 w-full max-w-4xl mx-auto px-6 text-center flex flex-col items-center">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+                <div className="grid lg:grid-cols-[48%_52%] lg:gap-12 xl:gap-16 items-center">
 
-                {/* Eyebrow badge */}
-                <div className="hero-anim inline-flex items-center gap-2.5 px-4 py-1.5 mb-10 rounded-full border border-ai-cyan/20 bg-ai-cyan/[0.07] text-ai-cyan text-sm font-mono backdrop-blur-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-ai-cyan animate-pulse-slow flex-shrink-0" />
-                    <span>Ecosistema de servicios para emprendedores en EE.UU.</span>
-                </div>
+                    {/* ── Left column: copy ── */}
+                    <div className="flex flex-col items-start">
 
-                {/* H1 — editorial break, gradient accent */}
-                <h1 className="hero-anim font-space text-[2.8rem] sm:text-6xl md:text-[4.5rem] font-bold tracking-tight leading-[1.06] mb-6 text-white text-balance">
-                    Tu negocio en<br className="hidden sm:block" />{' '}
-                    <span className="text-gradient">Estados Unidos</span>,<br className="hidden sm:block" />{' '}
-                    listo para crecer
-                </h1>
+                        {/* Eyebrow badge */}
+                        <div className="hero-anim inline-flex items-center gap-2.5 px-4 py-1.5 mb-8 rounded-full border border-ai-cyan/20 bg-ai-cyan/[0.07] text-ai-cyan text-sm font-mono backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-ai-cyan animate-pulse-slow flex-shrink-0" />
+                            <span>Un solo equipo. Cuatro servicios. Tu negocio en EE.UU.</span>
+                        </div>
 
-                {/* Subtext — benefit-first, human tone */}
-                <p className="hero-anim max-w-[38rem] text-lg md:text-xl text-silver/70 mb-10 text-balance leading-relaxed">
-                    Formamos tu empresa, construimos tu presencia digital, traemos clientes y organizamos tus impuestos — todo desde un solo equipo.
-                </p>
+                        {/* H1 */}
+                        <h1 className="hero-anim font-space text-[2.5rem] sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-bold tracking-tight leading-[1.06] mb-5 text-white text-pretty">
+                            Tu negocio en<br className="hidden sm:block" />{' '}
+                            <span className="text-gradient">Estados Unidos</span>,{' '}
+                            hecho bien{' '}
+                            <br className="hidden xl:block" />
+                            desde el primer día.
+                        </h1>
 
-                {/* CTA pair */}
-                <div className="hero-anim flex flex-col sm:flex-row items-center gap-3.5 w-full justify-center mb-16">
-                    <a href="/services" className="btn-primary w-full sm:w-auto group">
-                        Ver todos los servicios
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                    <a href="/contact" className="btn-secondary w-full sm:w-auto group">
-                        Hablar con el equipo
-                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                </div>
+                        {/* Subtext */}
+                        <p className="hero-anim text-base md:text-lg text-silver/65 mb-9 leading-relaxed max-w-[30rem]">
+                            Te acompañamos a abrir tu empresa, lanzarla en línea, atraer clientes y mantener tus números en orden. Un equipo profesional, no cuatro proveedores distintos.
+                        </p>
 
-                {/* Metrics bar */}
-                <div className="w-full max-w-xl">
-                    <div className="section-divider mb-7" />
-                    <div className="grid grid-cols-3 gap-2">
-                        {metrics.map((m, i) => (
-                            <div key={i} className="hero-metric flex flex-col items-center gap-1.5 px-2">
-                                <span className="font-space text-2xl md:text-3xl font-bold text-white tracking-tight leading-none">
-                                    {m.value}
-                                </span>
-                                <span className="text-[0.65rem] md:text-xs text-silver/45 font-mono text-center leading-tight">
-                                    {m.label}
-                                </span>
+                        {/* CTAs */}
+                        <div className="hero-anim flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-10">
+                            <a href="/services" className="btn-primary group sm:w-auto">
+                                Ver cómo funciona
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </a>
+                            <a href="/contact" className="btn-secondary group sm:w-auto">
+                                Hablar con un asesor
+                                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </div>
+
+                        {/* Qualitative pillars — replaces numeric metrics */}
+                        <div className="hero-anim w-full">
+                            <div className="section-divider mb-6" />
+                            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+                                {pillars.map((p, i) => (
+                                    <div key={i} className="flex flex-col gap-1">
+                                        <span className="font-space text-sm font-semibold text-white leading-none">
+                                            {p.label}
+                                        </span>
+                                        <span className="text-[0.62rem] text-silver/45 font-mono leading-snug whitespace-pre-line">
+                                            {p.desc}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
-                        ))}
+                        </div>
+                    </div>
+
+                    {/* ── Right column: Ecosystem Command Visual ── */}
+                    <div className="hero-visual mt-14 lg:mt-0">
+                        <HeroEcosystemVisual />
                     </div>
                 </div>
             </div>
 
-            {/* Bottom fade into next section */}
-            <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#0B0F19] to-transparent pointer-events-none z-10" />
+            {/* Bottom fade */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B0F19] to-transparent pointer-events-none z-10" />
         </section>
     );
 }
