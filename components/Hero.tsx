@@ -7,9 +7,9 @@ import HeroEcosystemVisual from './HeroEcosystemVisual';
 
 // Qualitative pillars — no numeric metrics
 const pillars = [
-    { label: 'Coordinado', desc: 'Un solo equipo,\nno cuatro proveedores' },
-    { label: 'Profesional', desc: 'Legal, fiscal y digital\ncon criterio' },
-    { label: 'Seguro', desc: 'Cumplimiento estatal\ny federal sin sorpresas' },
+    { label: 'Coordinado', desc: 'Un solo equipo, no cuatro proveedores' },
+    { label: 'Profesional', desc: 'Legal, fiscal y digital con criterio' },
+    { label: 'Seguro', desc: 'Cumplimiento estatal y federal sin sorpresas' },
 ];
 
 export default function Hero() {
@@ -105,13 +105,14 @@ export default function Hero() {
                         {/* Qualitative pillars — replaces numeric metrics */}
                         <div className="hero-anim w-full">
                             <div className="section-divider mb-6" />
-                            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+                            {/* Mobile: 1 col stacked for legibility. sm+: 3 cols */}
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
                                 {pillars.map((p, i) => (
-                                    <div key={i} className="flex flex-col gap-1">
+                                    <div key={i} className="flex flex-col gap-1.5">
                                         <span className="font-space text-sm font-semibold text-white leading-none">
                                             {p.label}
                                         </span>
-                                        <span className="text-[0.62rem] text-silver/45 font-mono leading-snug whitespace-pre-line">
+                                        <span className="text-xs text-silver/60 font-mono leading-relaxed">
                                             {p.desc}
                                         </span>
                                     </div>
