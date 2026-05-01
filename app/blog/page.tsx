@@ -11,7 +11,7 @@ export default function BlogIndex() {
     const allPosts = getSortedPostsData();
 
     return (
-        <div className="container" style={{ padding: "4rem 2rem" }}>
+        <div className="container" style={{ padding: "4rem 2rem", backgroundColor: "var(--ivory)", minHeight: "100vh" }}>
             <header style={{ marginBottom: "4rem", textAlign: "center" }}>
                 <h1 className="metallic-text" style={{ fontSize: "3rem", marginBottom: "1rem" }}>Insights</h1>
                 <p style={{ color: "var(--text-secondary)", fontSize: "1.2rem" }}>

@@ -5,6 +5,12 @@
 @layer base {
   :root {
     /* ── Warm-Premium Editorial v3 ── */
+    /* Variables legacy para blog/privacy/terms/disclaimer (usan inline style + var()) */
+    --text-primary: #2A2E2B;          /* graphite-warm */
+    --text-secondary: rgba(42,46,43,0.65);
+    --primary-metal: #C9A961;         /* gold-soft */
+    --accent-blue: #3A8C9C;           /* cyan-controlled */
+    --background-primary: #F7F3EC;    /* ivory */
     --ivory: #F7F3EC;
     --sand: #EDE5D6;
     --bone: #FBF8F2;
@@ -63,6 +69,18 @@
     opacity: 0.025;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='nf'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23nf)'/%3E%3C/svg%3E");
     mix-blend-mode: multiply;
+  }
+
+  /* ── Legacy utilities para páginas blog/legal ── */
+  .metallic-text {
+    color: var(--ink);
+    font-family: var(--font-display), Georgia, serif;
+  }
+  .container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
   }
 
   /* Legacy alias (algunos componentes aún lo usan; lo dejamos cálido) */

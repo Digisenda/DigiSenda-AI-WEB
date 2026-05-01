@@ -24,7 +24,7 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
     const post = getPostData(slug);
 
     return (
-        <article className="container" style={{ padding: "4rem 2rem", maxWidth: "800px" }}>
+        <article className="container" style={{ padding: "4rem 2rem", maxWidth: "800px", backgroundColor: "var(--ivory)", minHeight: "100vh" }}>
             <header style={{ marginBottom: "3rem", borderBottom: "1px solid var(--glass-border)", paddingBottom: "2rem" }}>
                 <Link href="/blog" style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "1rem", display: "inline-block" }}>
                     ← Back to Blog

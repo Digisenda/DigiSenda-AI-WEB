@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
     return (
-        <div className="container" style={{ padding: "4rem 2rem", maxWidth: "900px" }}>
+        <div className="container" style={{ padding: "4rem 2rem", maxWidth: "900px", backgroundColor: "var(--ivory)", minHeight: "100vh" }}>
             <h1 className="metallic-text" style={{ fontSize: "2.5rem", marginBottom: "2rem" }}>Privacy Policy</h1>
             <p style={{ color: "var(--text-secondary)", marginBottom: "2rem", fontSize: "0.9rem" }}>
                 <strong>Last Updated:</strong> February 7, 2026

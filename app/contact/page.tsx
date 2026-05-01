@@ -7,147 +7,149 @@ export const metadata: Metadata = {
     description: "Contacta con DigiSenda AI. Hub central para orientación sobre servicios del ecosistema.",
 };
 
+const contactItems = [
+    { Icon: Mail, label: 'Email', value: 'admin@digisendaai.com', href: 'mailto:admin@digisendaai.com', accent: '#C9A961' },
+    { Icon: Phone, label: 'Teléfono', value: '+1 (940) 548-7913', href: 'tel:+19405487913', accent: '#6F8F7B' },
+    { Icon: MapPin, label: 'Ubicación', value: 'San Antonio, Texas, USA', href: null, accent: '#3A8C9C' },
+];
+
+const ecosystemLinks = [
+    {
+        name: 'DigiSenda AI Tax Service',
+        desc: 'Servicio profesional de preparación de impuestos para individuos y pequeños negocios en Estados Unidos.',
+        href: 'https://digisenda-ai-tax-service.vercel.app',
+        accent: '#C9A961',
+        accentBg: 'rgba(201,169,97,0.07)',
+        accentBorder: 'rgba(201,169,97,0.22)',
+    },
+    {
+        name: 'SynapLeads',
+        desc: 'Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.',
+        href: null,
+        accent: '#3A8C9C',
+        accentBg: 'rgba(58,140,156,0.07)',
+        accentBorder: 'rgba(58,140,156,0.22)',
+    },
+    {
+        name: 'LLC Formation',
+        desc: 'Creación y estructuración legal de LLC en Estados Unidos.',
+        href: null,
+        accent: '#6F8F7B',
+        accentBg: 'rgba(111,143,123,0.07)',
+        accentBorder: 'rgba(111,143,123,0.22)',
+    },
+    {
+        name: 'Web Development',
+        desc: 'Landing pages y sitios web profesionales orientados a conversión.',
+        href: null,
+        accent: '#5B4A6B',
+        accentBg: 'rgba(91,74,107,0.07)',
+        accentBorder: 'rgba(91,74,107,0.22)',
+    },
+];
+
 export default function ContactPage() {
     return (
-        <div className="min-h-screen pt-32 pb-16 px-6">
+        <div className="min-h-screen bg-ivory pt-32 pb-20 px-6">
             <div className="max-w-4xl mx-auto">
+
                 {/* Header */}
                 <header className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-ai-cyan/30 bg-ai-cyan/10 text-ai-cyan text-sm font-mono">
-                        <span className="w-2 h-2 rounded-full bg-ai-cyan animate-pulse-slow" />
-                        <span>Hub Central de Orientación</span>
-                    </div>
-                    
-                    <h1 className="font-space text-4xl md:text-6xl font-bold text-white mb-6">
-                        Estamos aquí para orientarte
+                    <p className="eyebrow-warm mb-6 flex items-center justify-center gap-2">
+                        <span className="w-4 h-px bg-gold-soft/50" />
+                        Hub Central de Orientación
+                        <span className="w-4 h-px bg-gold-soft/50" />
+                    </p>
+                    <h1 className="font-display text-4xl md:text-6xl font-medium text-ink mb-6 leading-[1.06] tracking-tight">
+                        Estamos aquí<br className="hidden md:block" /> para{' '}
+                        <span className="italic text-graphite-warm">orientarte</span>
                     </h1>
-                    
-                    <p className="text-silver/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-graphite-warm/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
                         DigiSenda AI es el hub central del ecosistema. Te ayudamos a encontrar el servicio específico que necesitas para hacer crecer tu negocio.
                     </p>
                 </header>
 
-                {/* Contact Information Cards */}
-                <div className="grid md:grid-cols-3 gap-6 mb-16">
-                    <div className="glass-panel p-6 flex flex-col items-center text-center">
-                        <div className="w-12 h-12 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mb-4">
-                            <Mail className="w-6 h-6 text-ai-cyan" />
+                {/* Contact Cards */}
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                    {contactItems.map(({ Icon, label, value, href, accent }) => (
+                        <div key={label} className="editorial-card p-6 flex flex-col items-center text-center">
+                            <div
+                                className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
+                                style={{ background: 'rgba(201,169,97,0.10)', border: `1px solid ${accent}40` }}
+                            >
+                                <Icon className="w-5 h-5" style={{ color: accent }} strokeWidth={2} />
+                            </div>
+                            <h3 className="font-display font-semibold text-ink mb-2">{label}</h3>
+                            {href ? (
+                                <a
+                                    href={href}
+                                    className="text-graphite-warm/75 hover:text-gold-soft transition-colors text-sm"
+                                >
+                                    {value}
+                                </a>
+                            ) : (
+                                <p className="text-graphite-warm/75 text-sm">{value}</p>
+                            )}
                         </div>
-                        <h3 className="font-space font-semibold text-white mb-2">Email</h3>
-                        <a href="mailto:admin@digisendaai.com" className="text-silver/80 hover:text-ai-cyan transition-colors text-sm">
-                            admin@digisendaai.com
-                        </a>
-                    </div>
-
-                    <div className="glass-panel p-6 flex flex-col items-center text-center">
-                        <div className="w-12 h-12 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mb-4">
-                            <Phone className="w-6 h-6 text-ai-cyan" />
-                        </div>
-                        <h3 className="font-space font-semibold text-white mb-2">Teléfono</h3>
-                        <a href="tel:+19405487913" className="text-silver/80 hover:text-ai-cyan transition-colors text-sm">
-                            +1 (940) 548-7913
-                        </a>
-                    </div>
-
-                    <div className="glass-panel p-6 flex flex-col items-center text-center">
-                        <div className="w-12 h-12 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mb-4">
-                            <MapPin className="w-6 h-6 text-ai-cyan" />
-                        </div>
-                        <h3 className="font-space font-semibold text-white mb-2">Ubicación</h3>
-                        <p className="text-silver/80 text-sm">
-                            San Antonio, Texas<br />USA
-                        </p>
-                    </div>
+                    ))}
                 </div>
 
-                {/* Services Ecosystem Section */}
-                <div className="glass-panel p-8 md:p-12 mb-16">
-                    <h2 className="font-space text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+                {/* Ecosystem */}
+                <div className="bg-sand rounded-[1.25rem] border border-ink/[0.06] p-8 md:p-12 mb-12">
+                    <h2 className="font-display text-2xl md:text-3xl font-medium text-ink mb-4 text-center">
                         Explora Nuestro Ecosistema de Servicios
                     </h2>
-                    
-                    <p className="text-silver/80 text-center mb-10 max-w-2xl mx-auto">
+                    <p className="text-graphite-warm/65 text-center mb-10 max-w-2xl mx-auto">
                         Cada servicio opera de forma independiente con su propia web y sistema de captura de leads. Te orientamos hacia la solución correcta.
                     </p>
-
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {/* DigiSenda AI Tax Service */}
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-neural-blue/50 transition-colors">
-                            <h3 className="font-space text-xl font-semibold text-white mb-3">
-                                DigiSenda AI Tax Service
-                            </h3>
-                            <p className="text-silver/70 text-sm mb-4 leading-relaxed">
-                                Servicio profesional de preparación de impuestos para individuos y pequeños negocios en Estados Unidos.
-                            </p>
-                            <a 
-                                href="https://digisenda-ai-tax-service.vercel.app" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-ai-cyan hover:text-neural-blue transition-colors text-sm font-mono"
+                    <div className="grid md:grid-cols-2 gap-5">
+                        {ecosystemLinks.map((svc) => (
+                            <div
+                                key={svc.name}
+                                className="rounded-xl p-6 transition-colors"
+                                style={{
+                                    background: svc.accentBg,
+                                    border: `1px solid ${svc.accentBorder}`,
+                                }}
                             >
-                                Visitar sitio web
-                                <ArrowRight className="w-4 h-4" />
-                            </a>
-                        </div>
-
-                        {/* SynapLeads */}
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-neural-blue/50 transition-colors">
-                            <h3 className="font-space text-xl font-semibold text-white mb-3">
-                                SynapLeads
-                            </h3>
-                            <p className="text-silver/70 text-sm mb-4 leading-relaxed">
-                                Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-silver/50 text-sm font-mono">
-                                Próximamente
-                            </span>
-                        </div>
-
-                        {/* LLC Formation */}
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-neural-blue/50 transition-colors">
-                            <h3 className="font-space text-xl font-semibold text-white mb-3">
-                                LLC Formation
-                            </h3>
-                            <p className="text-silver/70 text-sm mb-4 leading-relaxed">
-                                Creación y estructuración legal de LLC en Estados Unidos.
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-silver/50 text-sm font-mono">
-                                Próximamente
-                            </span>
-                        </div>
-
-                        {/* Web Development */}
-                        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-neural-blue/50 transition-colors">
-                            <h3 className="font-space text-xl font-semibold text-white mb-3">
-                                Web Development
-                            </h3>
-                            <p className="text-silver/70 text-sm mb-4 leading-relaxed">
-                                Landing pages y sitios web profesionales orientados a conversión.
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-silver/50 text-sm font-mono">
-                                Próximamente
-                            </span>
-                        </div>
+                                <h3 className="font-display text-base font-semibold text-ink mb-3">{svc.name}</h3>
+                                <p className="text-graphite-warm/70 text-sm mb-4 leading-relaxed">{svc.desc}</p>
+                                {svc.href ? (
+                                    <a
+                                        href={svc.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-sm font-mono transition-colors"
+                                        style={{ color: svc.accent }}
+                                    >
+                                        Visitar sitio web
+                                        <ArrowRight className="w-4 h-4" />
+                                    </a>
+                                ) : (
+                                    <span className="text-sm font-mono text-graphite-warm/40">Próximamente</span>
+                                )}
+                            </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* Information Note */}
-                <div className="bg-neural-blue/10 border border-neural-blue/30 rounded-2xl p-6 text-center">
-                    <p className="text-silver/80 text-sm">
-                        <strong className="text-white">Nota importante:</strong> DigiSenda AI es el hub central de orientación. 
-                        Cada servicio satélite gestiona su propia captación de leads y procesos comerciales de forma independiente.
+                {/* Note */}
+                <div
+                    className="rounded-xl p-6 text-center mb-12"
+                    style={{ background: 'rgba(201,169,97,0.08)', border: '1px solid rgba(201,169,97,0.25)' }}
+                >
+                    <p className="text-graphite-warm/80 text-sm">
+                        <strong className="text-ink font-semibold">Nota importante:</strong>{' '}
+                        DigiSenda AI es el hub central de orientación. Cada servicio satélite gestiona su propia captación de leads y procesos comerciales de forma independiente.
                     </p>
                 </div>
 
-                {/* Additional Actions */}
-                <div className="mt-16 text-center">
-                    <p className="text-silver/60 mb-6">
+                {/* CTA */}
+                <div className="text-center">
+                    <p className="text-graphite-warm/60 mb-6">
                         ¿Quieres conocer más sobre nuestro ecosistema?
                     </p>
-                    <Link 
-                        href="/services" 
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-neural-blue/20 hover:bg-neural-blue border border-neural-blue font-semibold rounded-full text-white transition-all duration-300"
-                    >
+                    <Link href="/services" className="btn-warm-primary inline-flex">
                         Explorar todos los servicios
                         <ArrowRight className="w-4 h-4" />
                     </Link>
