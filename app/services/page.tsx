@@ -7,212 +7,170 @@ export const metadata: Metadata = {
     description: "Ecosistema completo de servicios profesionales orquestados por DigiSenda AI.",
 };
 
+const services = [
+    {
+        emoji: '💼',
+        name: 'DigiSenda AI Tax Service',
+        desc: 'Servicio profesional de preparación de impuestos para individuos y pequeños negocios.',
+        href: 'https://tax.digisendaai.com/',
+        status: 'Operativo',
+        accent: '#C9A961',
+        accentBg: 'rgba(201,169,97,0.08)',
+        accentBorder: 'rgba(201,169,97,0.25)',
+    },
+    {
+        emoji: '🎯',
+        name: 'SynapLeads',
+        desc: 'Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.',
+        href: 'https://www.synapleads.com/',
+        status: 'Operativo',
+        accent: '#3A8C9C',
+        accentBg: 'rgba(58,140,156,0.08)',
+        accentBorder: 'rgba(58,140,156,0.25)',
+    },
+    {
+        emoji: '🏢',
+        name: 'DigiSenda AI LLC Service',
+        desc: 'Servicio integral para creación y organización legal de LLC en Estados Unidos.',
+        href: null,
+        status: 'Próximamente',
+        accent: '#6F8F7B',
+        accentBg: 'rgba(111,143,123,0.08)',
+        accentBorder: 'rgba(111,143,123,0.25)',
+    },
+    {
+        emoji: '🌐',
+        name: 'DigiSenda AI Web Services',
+        desc: 'Diseño y despliegue de sitios web y landing pages orientadas a conversión.',
+        href: null,
+        status: 'Próximamente',
+        accent: '#3A8C9C',
+        accentBg: 'rgba(58,140,156,0.08)',
+        accentBorder: 'rgba(58,140,156,0.25)',
+    },
+    {
+        emoji: '📈',
+        name: 'DigiSenda AI Marketing Service',
+        desc: 'Servicios de marketing digital orientados al crecimiento sostenible de negocios.',
+        href: null,
+        status: 'Próximamente',
+        accent: '#5B4A6B',
+        accentBg: 'rgba(91,74,107,0.08)',
+        accentBorder: 'rgba(91,74,107,0.25)',
+    },
+];
+
+const howItWorks = [
+    { num: '1', title: 'Hub Central', desc: 'DigiSenda AI valida y orquesta todos los servicios del ecosistema' },
+    { num: '2', title: 'Servicios Satélite', desc: 'Cada servicio opera de forma independiente con su propia web y procesos' },
+    { num: '3', title: 'Especialización', desc: 'Cada servicio captura y gestiona sus propios leads de forma especializada' },
+];
+
 export default function ServicesPage() {
     return (
-        <div className="min-h-screen pt-32 pb-16 px-6">
+        <div className="min-h-screen bg-ivory pt-32 pb-20 px-6">
             <div className="max-w-7xl mx-auto">
+
                 {/* Header */}
                 <header className="text-center mb-16">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full border border-ai-cyan/30 bg-ai-cyan/10 text-ai-cyan text-sm font-mono">
-                        <span className="w-2 h-2 rounded-full bg-ai-cyan animate-pulse-slow" />
-                        <span>Ecosistema de Servicios</span>
-                    </div>
-                    
-                    <h1 className="font-space text-4xl md:text-6xl font-bold text-white mb-6">
-                        Soluciones especializadas para tu negocio
+                    <p className="eyebrow-warm mb-6 flex items-center justify-center gap-2">
+                        <span className="w-4 h-px bg-gold-soft/50" />
+                        Ecosistema de Servicios
+                        <span className="w-4 h-px bg-gold-soft/50" />
+                    </p>
+                    <h1 className="font-display text-4xl md:text-6xl font-medium text-ink mb-6 leading-[1.06] tracking-tight">
+                        Soluciones especializadas<br className="hidden md:block" /> para tu negocio
                     </h1>
-                    
-                    <p className="text-silver/80 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        DigiSenda AI orquesta un ecosistema de servicios satélite especializados. Cada servicio opera de forma independiente con su propia web y sistema de captura de leads.
+                    <p className="text-graphite-warm/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                        DigiSenda AI orquesta un ecosistema de servicios especializados. Cada servicio opera de forma independiente con su propia web y sistema de captura de leads.
                     </p>
                 </header>
 
                 {/* Services Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                    {/* DigiSenda AI Tax Service */}
-                    <div className="glass-panel p-8 hover:border-neural-blue/50 transition-all group">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-neural-blue/30 flex items-center justify-center">
-                                <span className="text-2xl">💼</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-mono">
-                                ● Operativo
-                            </span>
-                        </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3 group-hover:text-ai-cyan transition-colors">
-                            DigiSenda AI Tax Service
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicio profesional de preparación de impuestos para individuos y pequeños negocios.
-                        </p>
-                        
-                        <a 
-                            href="https://tax.digisendaai.com/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-ai-cyan hover:text-neural-blue transition-colors font-mono text-sm"
+                    {services.map((svc) => (
+                        <div
+                            key={svc.name}
+                            className="editorial-card p-8 flex flex-col group"
+                            style={{ opacity: svc.href ? 1 : 0.80 }}
                         >
-                            Visitar sitio web
-                            <ExternalLink className="w-4 h-4" />
-                        </a>
-                    </div>
-
-                    {/* SynapLeads */}
-                    <div className="glass-panel p-8 hover:border-neural-blue/50 transition-all group">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-neural-blue/30 flex items-center justify-center">
-                                <span className="text-2xl">🎯</span>
+                            <div className="flex items-start justify-between mb-5">
+                                <div
+                                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
+                                    style={{ background: svc.accentBg, border: `1px solid ${svc.accentBorder}` }}
+                                >
+                                    {svc.emoji}
+                                </div>
+                                <span
+                                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono"
+                                    style={{
+                                        background: svc.accentBg,
+                                        border: `1px solid ${svc.accentBorder}`,
+                                        color: svc.accent,
+                                    }}
+                                >
+                                    {svc.status === 'Operativo' && '● '}{svc.status}
+                                </span>
                             </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/20 border border-green-500/30 text-green-400 text-xs font-mono">
-                                ● Operativo
-                            </span>
-                        </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3 group-hover:text-ai-cyan transition-colors">
-                            SynapLeads
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.
-                        </p>
-                        
-                        <a 
-                            href="https://www.synapleads.com/" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-ai-cyan hover:text-neural-blue transition-colors font-mono text-sm"
-                        >
-                            Visitar sitio web
-                            <ExternalLink className="w-4 h-4" />
-                        </a>
-                    </div>
 
-                    {/* LLC Service */}
-                    <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
-                                <span className="text-2xl">🏢</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 border border-white/20 text-silver/50 text-xs font-mono">
-                                Próximamente
-                            </span>
-                        </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            DigiSenda AI LLC Service
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicio integral para creación y organización legal de LLC en Estados Unidos.
-                        </p>
-                        
-                        <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            llc.digisendaai.com
-                        </span>
-                    </div>
+                            <h3
+                                className="font-display text-xl font-semibold text-ink mb-3 transition-colors group-hover:text-graphite-warm leading-snug"
+                            >
+                                {svc.name}
+                            </h3>
 
-                    {/* Web Services */}
-                    <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
-                                <span className="text-2xl">🌐</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 border border-white/20 text-silver/50 text-xs font-mono">
-                                Próximamente
-                            </span>
-                        </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            DigiSenda AI Web Services
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Diseño y despliegue de sitios web y landing pages orientadas a conversión.
-                        </p>
-                        
-                        <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            web.digisendaai.com
-                        </span>
-                    </div>
+                            <p className="text-graphite-warm/70 mb-6 leading-relaxed flex-1">
+                                {svc.desc}
+                            </p>
 
-                    {/* Marketing Service */}
-                    <div className="glass-panel p-8 hover:border-white/20 transition-all group opacity-75">
-                        <div className="flex items-start justify-between mb-4">
-                            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-neural-blue/20 to-ai-cyan/20 border border-white/10 flex items-center justify-center">
-                                <span className="text-2xl">📈</span>
-                            </div>
-                            <span className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-white/10 border border-white/20 text-silver/50 text-xs font-mono">
-                                Próximamente
-                            </span>
+                            {svc.href ? (
+                                <a
+                                    href={svc.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 text-sm font-mono transition-all duration-200"
+                                    style={{ color: svc.accent }}
+                                >
+                                    Visitar sitio web
+                                    <ExternalLink className="w-4 h-4" />
+                                </a>
+                            ) : (
+                                <span className="text-sm font-mono text-graphite-warm/40">
+                                    Próximamente disponible
+                                </span>
+                            )}
                         </div>
-                        
-                        <h3 className="font-space text-2xl font-semibold text-white mb-3">
-                            DigiSenda AI Marketing Service
-                        </h3>
-                        
-                        <p className="text-silver/70 mb-6 leading-relaxed">
-                            Servicios de marketing digital orientados al crecimiento sostenible de negocios.
-                        </p>
-                        
-                        <span className="inline-flex items-center gap-2 text-silver/50 font-mono text-sm">
-                            business.digisendaai.com
-                        </span>
-                    </div>
+                    ))}
                 </div>
 
-                {/* How it Works Section */}
-                <div className="glass-panel p-8 md:p-12 mb-16">
-                    <h2 className="font-space text-3xl font-bold text-white mb-6 text-center">
+                {/* How it Works */}
+                <div className="bg-sand rounded-[1.5rem] border border-ink/[0.06] p-8 md:p-12 mb-16">
+                    <h2 className="font-display text-2xl md:text-3xl font-medium text-ink mb-10 text-center">
                         Cómo Funciona el Ecosistema
                     </h2>
-                    
-                    <div className="grid md:grid-cols-3 gap-8 mt-10">
-                        <div className="text-center">
-                            <div className="w-16 h-16 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mx-auto mb-4">
-                                <span className="font-space font-bold text-2xl text-ai-cyan">1</span>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {howItWorks.map((step) => (
+                            <div key={step.num} className="text-center">
+                                <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4"
+                                    style={{ background: 'rgba(201,169,97,0.12)', border: '1px solid rgba(201,169,97,0.35)' }}>
+                                    <span className="font-display font-semibold text-2xl text-gold-soft">{step.num}</span>
+                                </div>
+                                <h3 className="font-display font-semibold text-ink mb-2">{step.title}</h3>
+                                <p className="text-graphite-warm/65 text-sm leading-relaxed">{step.desc}</p>
                             </div>
-                            <h3 className="font-space font-semibold text-white mb-2">Hub Central</h3>
-                            <p className="text-silver/70 text-sm">
-                                DigiSenda AI valida y orquesta todos los servicios del ecosistema
-                            </p>
-                        </div>
-
-                        <div className="text-center">
-                            <div className="w-16 h-16 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mx-auto mb-4">
-                                <span className="font-space font-bold text-2xl text-ai-cyan">2</span>
-                            </div>
-                            <h3 className="font-space font-semibold text-white mb-2">Servicios Satélite</h3>
-                            <p className="text-silver/70 text-sm">
-                                Cada servicio opera de forma independiente con su propia web y procesos
-                            </p>
-                        </div>
-
-                        <div className="text-center">
-                            <div className="w-16 h-16 rounded-full bg-neural-blue/20 border border-neural-blue flex items-center justify-center mx-auto mb-4">
-                                <span className="font-space font-bold text-2xl text-ai-cyan">3</span>
-                            </div>
-                            <h3 className="font-space font-semibold text-white mb-2">Especialización</h3>
-                            <p className="text-silver/70 text-sm">
-                                Cada servicio captura y gestiona sus propios leads de forma especializada
-                            </p>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
-                {/* CTA Section */}
+                {/* CTA */}
                 <div className="text-center">
-                    <h3 className="font-space text-2xl font-bold text-white mb-4">
+                    <h3 className="font-display text-2xl font-medium text-ink mb-4">
                         ¿Necesitas orientación sobre qué servicio es para ti?
                     </h3>
-                    <p className="text-silver/70 mb-8 max-w-2xl mx-auto">
+                    <p className="text-graphite-warm/65 mb-8 max-w-2xl mx-auto">
                         Contáctanos y te ayudamos a navegar el ecosistema
                     </p>
-                    <Link 
-                        href="/contact" 
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-white text-deep-space font-semibold rounded-full hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all"
-                    >
+                    <Link href="/contact" className="btn-warm-primary inline-flex">
                         Contactar
                         <ArrowRight className="w-4 h-4" />
                     </Link>
