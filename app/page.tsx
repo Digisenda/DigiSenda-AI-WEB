@@ -5,33 +5,27 @@ import Process from '../components/Process';
 import Trust from '../components/Trust';
 
 /**
- * Página principal — alternancia editorial Fase 2:
- * - Hero claro warm (Fase 2 v3)
- * - Bandas legacy envueltas en bg-deep-space para preservar contraste interno
- *   hasta que cada sección sea rediseñada (Fase 3-4). Esto crea la alternancia
- *   claro/oscuro anunciada en el plan §F (Ecosystem editorial dark, etc.).
+ * Página principal — alternancia editorial v3:
+ *
+ * Hero          bg-ivory    (claro warm)
+ * Ecosystem     bg-ivory    (claro warm, editorial-cards)
+ * SuccessStories bg-sand    (claro arena)
+ * Process       bg-bone     (claro hueso)
+ * Trust (cards) bg-ivory    (claro warm)
+ * Trust (CTA)   bg-ink      (oscuro editorial — contraste intencional)
+ * Footer        bg-ink      (oscuro editorial)
+ *
+ * Cada sección gestiona su propio background.
+ * La banda bg-deep-space temporal de Fase 2 ya no es necesaria.
  */
 export default function Home() {
   return (
     <>
       <Hero />
-
-      {/* Banda oscura — cuatro secciones legacy aún con texto white/silver. */}
-      <div className="bg-deep-space relative">
-        {/* Borde superior gold quirúrgico para hilvanar visualmente con el hero */}
-        <div
-          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-          style={{
-            background:
-              'linear-gradient(to right, transparent, rgba(201,169,97,0.35) 50%, transparent)',
-          }}
-          aria-hidden="true"
-        />
-        <Ecosystem />
-        <SuccessStories />
-        <Process />
-        <Trust />
-      </div>
+      <Ecosystem />
+      <SuccessStories />
+      <Process />
+      <Trust />
     </>
   );
 }

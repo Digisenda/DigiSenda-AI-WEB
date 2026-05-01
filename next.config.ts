@@ -11,17 +11,8 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Permitimos Unsplash como origen remoto SOLO mientras la imagen del hero
-    // sea un placeholder. En producción reemplazar por foto IA o stock propia
-    // alojada localmente en /public/img/hero/founder.jpg y eliminar este
-    // remotePattern.
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        pathname: '/**',
-      },
-    ],
+    // Sin remotePatterns — todas las imágenes son locales en /public/img/.
+    // (Se puede añadir si en el futuro se usan CDN externos).
   },
 };
 

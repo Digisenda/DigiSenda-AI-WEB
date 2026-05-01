@@ -156,21 +156,18 @@ export default function Hero() {
                     {/* ── Columna derecha: composición humana 2.5D ── */}
                     <div className="relative mt-16 lg:mt-0">
                         {/*
-                          * Foto editorial — placeholder Unsplash temporal.
-                          * Para producción, reemplazar por foto IA / propia
-                          * alojada en /public/img/hero/founder.jpg, cambiar
-                          * el src a "/img/hero/founder.jpg", quitar el
-                          * remotePattern de Unsplash en next.config.ts y
-                          * actualizar IMAGE_PROMPTS.md.
+                          * Foto editorial — asset real en /public/img/hero/founder.jpg
+                          * Optimizado automáticamente por next/image (WebP/AVIF).
+                          * Reemplazar por foto IA definitiva siguiendo IMAGE_PROMPTS.md.
                           */}
                         <div className="hero-photo-wrap relative aspect-[4/5] w-full max-w-[560px] mx-auto rounded-[1.5rem] overflow-hidden shadow-card-premium">
                             <Image
-                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80&auto=format&fit=crop&crop=faces"
+                                src="/img/hero/founder.jpg"
                                 alt="Emprendedora en su pequeño negocio en Estados Unidos"
                                 fill
                                 priority
                                 sizes="(min-width: 1024px) 560px, 90vw"
-                                className="object-cover"
+                                className="object-cover object-top"
                             />
                             {/* Borde dorado quirúrgico */}
                             <div

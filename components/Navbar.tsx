@@ -26,8 +26,8 @@ export default function Navbar() {
             <header
                 className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-400 rounded-full border ${
                     scrolled
-                        ? 'w-[92%] md:w-[780px] bg-[#0B0F19]/92 backdrop-blur-xl border-white/[0.09] py-2.5 px-5 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
-                        : 'w-[94%] md:w-[980px] bg-[#0B0F19]/85 backdrop-blur-md border-white/[0.10] py-3 px-6 shadow-[0_8px_28px_rgba(14,26,31,0.18)]'
+                        ? 'w-[92%] md:w-[780px] bg-ink/90 backdrop-blur-xl border-bone/[0.10] py-2.5 px-5 shadow-[0_8px_32px_rgba(14,26,31,0.45)]'
+                        : 'w-[94%] md:w-[980px] bg-ink/82 backdrop-blur-md border-bone/[0.09] py-3 px-6 shadow-[0_8px_28px_rgba(14,26,31,0.22)]'
                 }`}
             >
                 <div className="flex items-center justify-between">
@@ -50,25 +50,30 @@ export default function Navbar() {
                             <Link
                                 key={href}
                                 href={href}
-                                className="text-silver/70 hover:text-white transition-colors duration-200 text-sm font-medium tracking-wide"
+                                className="text-bone/70 hover:text-gold-soft transition-colors duration-200 text-sm font-medium tracking-wide"
                             >
                                 {label}
                             </Link>
                         ))}
                     </nav>
 
-                    {/* Desktop CTA */}
+                    {/* Desktop CTAs */}
                     <div className="hidden md:flex items-center gap-3">
                         <Link
                             href="/contact"
-                            className="relative overflow-hidden rounded-full px-5 py-2 text-sm font-medium text-white border border-white/[0.12] group transition-all duration-300 hover:border-white/25"
+                            className="relative overflow-hidden rounded-full px-5 py-2 text-sm font-medium text-bone/80 border border-bone/[0.15] group transition-all duration-300 hover:border-gold-soft/40 hover:text-gold-soft"
                         >
-                            <span className="absolute inset-0 bg-gradient-to-r from-neural-blue/20 to-ai-cyan/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            <span className="relative z-10">Contacto</span>
+                            Contacto
                         </Link>
                         <Link
                             href="/services"
-                            className="rounded-full px-5 py-2 text-sm font-semibold text-deep-space bg-white hover:bg-silver transition-colors duration-300"
+                            className="rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300"
+                            style={{
+                                background: '#C9A961',
+                                color: '#0E1A1F',
+                            }}
+                            onMouseEnter={e => (e.currentTarget.style.background = '#B89550')}
+                            onMouseLeave={e => (e.currentTarget.style.background = '#C9A961')}
                         >
                             Ver servicios
                         </Link>
@@ -77,7 +82,7 @@ export default function Navbar() {
                     {/* Mobile toggle */}
                     <button
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        className="md:hidden p-2 text-silver/70 hover:text-white transition-colors"
+                        className="md:hidden p-2 text-bone/70 hover:text-gold-soft transition-colors"
                         aria-label="Toggle menu"
                         aria-expanded={mobileMenuOpen}
                     >
@@ -90,16 +95,16 @@ export default function Navbar() {
             {mobileMenuOpen && (
                 <div className="fixed inset-0 z-40 md:hidden">
                     <div
-                        className="fixed inset-0 bg-[#070B14]/90 backdrop-blur-2xl"
+                        className="fixed inset-0 bg-ink/90 backdrop-blur-2xl"
                         onClick={() => setMobileMenuOpen(false)}
                     />
-                    <nav className="fixed top-[4.5rem] left-4 right-4 bg-[#0D1220]/95 border border-white/[0.08] rounded-[1.5rem] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+                    <nav className="fixed top-[4.5rem] left-4 right-4 bg-ink/95 border border-bone/[0.10] rounded-[1.5rem] p-6 shadow-[0_20px_60px_rgba(14,26,31,0.5)]">
                         <div className="space-y-1 mb-5">
                             {navLinks.map(({ href, label }) => (
                                 <Link
                                     key={href}
                                     href={href}
-                                    className="flex items-center py-3.5 px-2 text-white/80 hover:text-white transition-colors font-medium text-base border-b border-white/[0.06] last:border-0"
+                                    className="flex items-center py-3.5 px-2 text-bone/80 hover:text-gold-soft transition-colors font-medium text-base border-b border-bone/[0.07] last:border-0"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
                                     {label}
@@ -108,7 +113,7 @@ export default function Navbar() {
                         </div>
                         <Link
                             href="/contact"
-                            className="block text-center bg-neural-blue hover:bg-neural-blue-light text-white font-semibold rounded-full px-6 py-3.5 transition-colors duration-300"
+                            className="block text-center btn-warm-primary justify-center w-full"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             Hablar con el equipo
