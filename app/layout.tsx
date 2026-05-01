@@ -1,7 +1,34 @@
 import type { Metadata } from 'next';
+import { Fraunces, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+
+// ── Tipografías v3 (Editorial Warm-Premium) ──
+// Display: Fraunces — serif moderna con personalidad editorial.
+// Body: Plus Jakarta Sans — humanista contemporánea, no Inter.
+// Mono: JetBrains Mono — eyebrows técnicos.
+const fontDisplay = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-display',
+});
+
+const fontBody = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-body',
+});
+
+const fontMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--font-mono',
+});
 
 export const metadata: Metadata = {
   title: 'DigiSenda AI | Lanza y escala tu negocio en Estados Unidos',
@@ -36,7 +63,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html
+      lang="es"
+      className={`scroll-smooth ${fontDisplay.variable} ${fontBody.variable} ${fontMono.variable}`}
+    >
       <head>
         {/* Structured Data JSON-LD Organization */}
         <script
@@ -65,9 +95,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased min-h-screen relative bg-[#0B0F19] text-[#CBD5F5] font-inter">
-        {/* Global texture */}
-        <div className="noise-overlay" aria-hidden="true"></div>
+      <body className="antialiased min-h-screen relative bg-ivory text-graphite-warm font-body">
+        {/* Warm grain global — 2.5 % */}
+        <div className="warm-grain" aria-hidden="true"></div>
 
         <Navbar />
         <main>{children}</main>
