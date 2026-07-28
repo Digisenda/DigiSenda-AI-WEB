@@ -539,6 +539,16 @@ Genera automáticamente:
 }
 ```
 
+### Google Search Console: propiedad de Dominio (decisión 2026-07-28)
+
+`digisendaai.com` es la **marca madre** del ecosistema y está registrada en Google Search Console como **propiedad de Dominio** (verificación por registro TXT en el DNS del dominio raíz), no como propiedades de "Prefijo de URL" independientes por cada servicio/subdominio.
+
+**Por qué:** una propiedad de Dominio cubre automáticamente **todos los subdominios y protocolos** del dominio raíz — incluidos los servicios satélite como `tax.digisendaai.com` (DigiSenda AI Tax Service, repo `digisenda-tax-services`) — sin necesidad de un meta-tag de verificación HTML por sitio. Esto evita repetir la verificación cada vez que se lanza un nuevo servicio bajo el paraguas de la marca.
+
+**Evidencia confirmada** (Search Console, capturas del usuario): `https://tax.digisendaai.com/sitemap.xml` está enviado (18 feb 2026) con estado **Correcto** y 5 páginas descubiertas, junto al sitemap de `https://digisendaai.com/sitemap.xml` en la misma vista de propiedad.
+
+**Implicación para servicios nuevos:** cualquier servicio que se lance bajo un subdominio de `digisendaai.com` (ej. `llc.digisendaai.com`, `web.digisendaai.com`) queda cubierto automáticamente por esta propiedad de Dominio — no hace falta crear una propiedad separada ni cargar un código de verificación propio en su código. Solo hace falta enviar el sitemap del nuevo subdominio dentro de la misma propiedad. Registrar un servicio como propiedad independiente (Prefijo de URL) es una opción válida solo si se decide desvincularlo completamente de la marca DigiSenda AI a efectos de SEO — no aporta ninguna ventaja de ranking, solo fragmenta el reporting.
+
 ---
 
 ## Formulario de Contacto
