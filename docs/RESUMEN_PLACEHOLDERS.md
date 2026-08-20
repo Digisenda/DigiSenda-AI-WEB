@@ -41,7 +41,7 @@
 
 ### 2. ✅ Teléfono de Contacto
 - **Archivo:** `components/JsonLd.tsx`
-- **Cambio:** `+1-940-548-7913`
+- **Cambio:** `+1-254-256-3909`
 - **Antes:** `+1-555-555-5555` (dummy)
 - **Ahora:** Número real de contacto
 
@@ -231,7 +231,7 @@
 ### Commit 1: Datos Corporativos y Servicios
 ```
 - Dominio actualizado: digisendaai.com
-- Teléfono: +1-940-548-7913
+- Teléfono: +1-254-256-3909
 - Redes sociales: 5 URLs verificadas y añadidas
 - Google Analytics: G-3PNSTCCWZG activado
 - Servicios: 5 servicios reales implementados
@@ -314,7 +314,7 @@
 - **Legal/DPO:** (usar admin@ temporalmente) ⚠️
 
 ### Teléfono
-- **Corporativo:** +1 (940) 548-7913 ✅
+- **Corporativo:** +1 (254) 256-3909 ✅
 
 ### Web y Social
 - **Dominio:** https://digisendaai.com ✅

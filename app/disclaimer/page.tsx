@@ -113,7 +113,7 @@ export default function DisclaimerPage() {
                 <ul style={{ color: "var(--text-primary)", marginLeft: "2rem", marginBottom: "1rem", lineHeight: "1.8", listStyle: "none" }}>
                     <li><strong>Email:</strong> admin@digisendaai.com</li>
                     <li><strong>Support:</strong> soporte@digisendaai.com</li>
-                    <li><strong>Phone:</strong> +1 (940) 548-7913</li>
+                    <li><strong>Phone:</strong> +1 (254) 256-3909</li>
                     <li><strong>Website:</strong> https://digisendaai.com</li>
                 </ul>
             </section>

@@ -773,7 +773,7 @@ import Image from 'next/image';
 ### Empresa
 - **Nombre:** DigiSenda AI
 - **Dominio:** https://digisendaai.com
-- **Teléfono:** +1 (940) 548-7913
+- **Teléfono:** +1 (254) 256-3909
 - **Ubicación:** San Antonio, Texas, USA
 
 ### Emails

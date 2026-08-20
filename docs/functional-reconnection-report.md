@@ -158,7 +158,7 @@ setStatus('success');
 
 // Sección 2: Información de Contacto
 - Email: admin@digisendaai.com
-- Teléfono: +1 (940) 548-7913
+- Teléfono: +1 (254) 256-3909
 - Ubicación: San Antonio, Texas
 
 // Sección 3: Servicios del Ecosistema
@@ -634,7 +634,7 @@ async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
 ### Datos Corporativos en el Sitio
 
 **Email:** admin@digisendaai.com  
-**Teléfono:** +1 (940) 548-7913  
+**Teléfono:** +1 (254) 256-3909  
 **Ubicación:** San Antonio, Texas, USA
 
 **Redes Sociales:**

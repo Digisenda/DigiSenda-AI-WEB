@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const contactItems = [
     { Icon: Mail, label: 'Email', value: 'admin@digisendaai.com', href: 'mailto:admin@digisendaai.com', accent: '#C9A961' },
-    { Icon: Phone, label: 'Teléfono', value: '+1 (940) 548-7913', href: 'tel:+19405487913', accent: '#6F8F7B' },
+    { Icon: Phone, label: 'Teléfono', value: '+1 (254) 256-3909', href: 'tel:+12542563909', accent: '#6F8F7B' },
     { Icon: MapPin, label: 'Ubicación', value: 'San Antonio, Texas, USA', href: null, accent: '#3A8C9C' },
 ];
 

@@ -775,7 +775,7 @@ import Image from 'next/image';
   "name": "DigiSenda AI",
   "url": "https://digisenda.ai",
   "logo": "https://digisenda.ai/logo.png",
-  "telephone": "+1-940-548-7913",
+  "telephone": "+1-254-256-3909",
   "email": "admin@digisendaai.com",
   "address": {
     "@type": "PostalAddress",

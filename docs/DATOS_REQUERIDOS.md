@@ -38,7 +38,7 @@ Este documento detalla **TODOS** los datos externos que deben ser proporcionados
 
 **📝 DATO A PROPORCIONAR:**
 ```
-Teléfono: 940) 548-7913
+Teléfono: 254) 256-3909
 _
 ```
 
