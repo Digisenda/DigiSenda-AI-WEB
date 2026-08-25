@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { MODULOS } from '../../lib/enablement';
 
 export const metadata: Metadata = {
     title: "Contacto | DigiSenda AI",
@@ -14,10 +15,20 @@ const contactItems = [
 ];
 
 const ecosystemLinks = [
+    ...MODULOS.map((m) => ({
+        name: m.title,
+        desc: m.objetivo,
+        href: `/services/${m.slug}`,
+        internal: true as const,
+        accent: m.accent,
+        accentBg: m.accentBg,
+        accentBorder: m.accentBorder,
+    })),
     {
         name: 'DigiSenda AI Tax Service',
         desc: 'Servicio profesional de preparación de impuestos para individuos y pequeños negocios en Estados Unidos.',
-        href: 'https://digisenda-ai-tax-service.vercel.app',
+        href: 'https://tax.digisendaai.com/',
+        internal: false as const,
         accent: '#C9A961',
         accentBg: 'rgba(201,169,97,0.07)',
         accentBorder: 'rgba(201,169,97,0.22)',
@@ -25,26 +36,11 @@ const ecosystemLinks = [
     {
         name: 'SynapLeads',
         desc: 'Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.',
-        href: null,
+        href: 'https://www.synapleads.com/',
+        internal: false as const,
         accent: '#3A8C9C',
         accentBg: 'rgba(58,140,156,0.07)',
         accentBorder: 'rgba(58,140,156,0.22)',
-    },
-    {
-        name: 'LLC Formation',
-        desc: 'Creación y estructuración legal de LLC en Estados Unidos.',
-        href: null,
-        accent: '#6F8F7B',
-        accentBg: 'rgba(111,143,123,0.07)',
-        accentBorder: 'rgba(111,143,123,0.22)',
-    },
-    {
-        name: 'Web Development',
-        desc: 'Landing pages y sitios web profesionales orientados a conversión.',
-        href: null,
-        accent: '#5B4A6B',
-        accentBg: 'rgba(91,74,107,0.07)',
-        accentBorder: 'rgba(91,74,107,0.22)',
     },
 ];
 
@@ -100,7 +96,7 @@ export default function ContactPage() {
                         Explora Nuestro Ecosistema de Servicios
                     </h2>
                     <p className="text-graphite-warm/65 text-center mb-10 max-w-2xl mx-auto">
-                        Cada servicio opera de forma independiente con su propia web y sistema de captura de leads. Te orientamos hacia la solución correcta.
+                        Explora cada módulo o línea de servicio y te orientamos hacia la solución correcta.
                     </p>
                     <div className="grid md:grid-cols-2 gap-5">
                         {ecosystemLinks.map((svc) => (
@@ -114,7 +110,16 @@ export default function ContactPage() {
                             >
                                 <h3 className="font-display text-base font-semibold text-ink mb-3">{svc.name}</h3>
                                 <p className="text-graphite-warm/70 text-sm mb-4 leading-relaxed">{svc.desc}</p>
-                                {svc.href ? (
+                                {svc.internal ? (
+                                    <Link
+                                        href={svc.href}
+                                        className="inline-flex items-center gap-2 text-sm font-mono transition-colors"
+                                        style={{ color: svc.accent }}
+                                    >
+                                        Ver módulo
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                ) : (
                                     <a
                                         href={svc.href}
                                         target="_blank"
@@ -125,8 +130,6 @@ export default function ContactPage() {
                                         Visitar sitio web
                                         <ArrowRight className="w-4 h-4" />
                                     </a>
-                                ) : (
-                                    <span className="text-sm font-mono text-graphite-warm/40">Próximamente</span>
                                 )}
                             </div>
                         ))}
@@ -140,17 +143,19 @@ export default function ContactPage() {
                 >
                     <p className="text-graphite-warm/80 text-sm">
                         <strong className="text-ink font-semibold">Nota importante:</strong>{' '}
-                        DigiSenda AI es el hub central de orientación. Cada servicio satélite gestiona su propia captación de leads y procesos comerciales de forma independiente.
+                        Small Business Digital Enablement (Business Foundation, Digital Presence, Customer
+                        Acquisition y Digital Operations) se diagnostica y se captura directamente aquí, en
+                        digisendaai.com. Tax Service y SynapLeads siguen operando cada uno en su propio sitio.
                     </p>
                 </div>
 
                 {/* CTA */}
                 <div className="text-center">
                     <p className="text-graphite-warm/60 mb-6">
-                        ¿Quieres conocer más sobre nuestro ecosistema?
+                        ¿No sabes por dónde empezar? Un diagnóstico de 5 minutos te lo dice.
                     </p>
-                    <Link href="/services" className="btn-warm-primary inline-flex">
-                        Explorar todos los servicios
+                    <Link href="/diagnostico" className="btn-warm-primary inline-flex">
+                        Hacer mi diagnóstico
                         <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>

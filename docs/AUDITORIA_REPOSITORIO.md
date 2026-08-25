@@ -1,4 +1,9 @@
 # 🔍 AUDITORÍA TÉCNICA COMPLETA DEL REPOSITORIO
+
+> **HISTÓRICO (2026-02-07).** Superado por el refresh visual warm-premium
+> (2026-08) y por el embudo de Small Business Digital Enablement
+> (2026-08-25). Conservado como registro de la auditoría original, no como
+> estado actual del repo.
 ## DigiSenda AI - Ecosystem Hub
 
 **Fecha de auditoría:** 2026-02-07  

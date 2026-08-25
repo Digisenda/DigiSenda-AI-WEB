@@ -1,15 +1,39 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { MODULOS } from '../../lib/enablement';
 
 export const metadata: Metadata = {
     title: "Servicios | DigiSenda AI",
     description: "Ecosistema completo de servicios profesionales orquestados por DigiSenda AI.",
 };
 
-const services = [
+type ServiceCard = {
+    name: string;
+    desc: string;
+    status: string;
+    accent: string;
+    accentBg: string;
+    accentBorder: string;
+} & (
+    | { internal: true; href: string }
+    | { internal: false; href: string }
+);
+
+const enablementServices: ServiceCard[] = MODULOS.map((m) => ({
+    internal: true,
+    name: m.title,
+    desc: m.objetivo,
+    href: `/services/${m.slug}`,
+    status: 'Disponible',
+    accent: m.accent,
+    accentBg: m.accentBg,
+    accentBorder: m.accentBorder,
+}));
+
+const externalServices: ServiceCard[] = [
     {
-        emoji: '💼',
+        internal: false,
         name: 'DigiSenda AI Tax Service',
         desc: 'Servicio profesional de preparación de impuestos para individuos y pequeños negocios.',
         href: 'https://tax.digisendaai.com/',
@@ -19,7 +43,7 @@ const services = [
         accentBorder: 'rgba(201,169,97,0.25)',
     },
     {
-        emoji: '🎯',
+        internal: false,
         name: 'SynapLeads',
         desc: 'Plataforma inteligente para captura, calificación y transferencia de leads en tiempo real.',
         href: 'https://www.synapleads.com/',
@@ -28,42 +52,14 @@ const services = [
         accentBg: 'rgba(58,140,156,0.08)',
         accentBorder: 'rgba(58,140,156,0.25)',
     },
-    {
-        emoji: '🏢',
-        name: 'DigiSenda AI LLC Service',
-        desc: 'Servicio integral para creación y organización legal de LLC en Estados Unidos.',
-        href: null,
-        status: 'Próximamente',
-        accent: '#6F8F7B',
-        accentBg: 'rgba(111,143,123,0.08)',
-        accentBorder: 'rgba(111,143,123,0.25)',
-    },
-    {
-        emoji: '🌐',
-        name: 'DigiSenda AI Web Services',
-        desc: 'Diseño y despliegue de sitios web y landing pages orientadas a conversión.',
-        href: null,
-        status: 'Próximamente',
-        accent: '#3A8C9C',
-        accentBg: 'rgba(58,140,156,0.08)',
-        accentBorder: 'rgba(58,140,156,0.25)',
-    },
-    {
-        emoji: '📈',
-        name: 'DigiSenda AI Marketing Service',
-        desc: 'Servicios de marketing digital orientados al crecimiento sostenible de negocios.',
-        href: null,
-        status: 'Próximamente',
-        accent: '#5B4A6B',
-        accentBg: 'rgba(91,74,107,0.08)',
-        accentBorder: 'rgba(91,74,107,0.25)',
-    },
 ];
+
+const services: ServiceCard[] = [...externalServices, ...enablementServices];
 
 const howItWorks = [
     { num: '1', title: 'Hub Central', desc: 'DigiSenda AI valida y orquesta todos los servicios del ecosistema' },
-    { num: '2', title: 'Servicios Satélite', desc: 'Cada servicio opera de forma independiente con su propia web y procesos' },
-    { num: '3', title: 'Especialización', desc: 'Cada servicio captura y gestiona sus propios leads de forma especializada' },
+    { num: '2', title: 'Servicios especializados', desc: 'Cada línea opera con su propio alcance, límites y resultado medible' },
+    { num: '3', title: 'Diagnóstico primero', desc: 'Un diagnóstico de 5 minutos te dice qué módulo necesitas y con qué precio' },
 ];
 
 export default function ServicesPage() {
@@ -82,7 +78,7 @@ export default function ServicesPage() {
                         Soluciones especializadas<br className="hidden md:block" /> para tu negocio
                     </h1>
                     <p className="text-graphite-warm/70 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                        DigiSenda AI orquesta un ecosistema de servicios especializados. Cada servicio opera de forma independiente con su propia web y sistema de captura de leads.
+                        DigiSenda AI orquesta un ecosistema de servicios especializados. Cada uno tiene su propio alcance, sus límites y un resultado medible.
                     </p>
                 </header>
 
@@ -92,15 +88,8 @@ export default function ServicesPage() {
                         <div
                             key={svc.name}
                             className="editorial-card p-8 flex flex-col group"
-                            style={{ opacity: svc.href ? 1 : 0.80 }}
                         >
                             <div className="flex items-start justify-between mb-5">
-                                <div
-                                    className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
-                                    style={{ background: svc.accentBg, border: `1px solid ${svc.accentBorder}` }}
-                                >
-                                    {svc.emoji}
-                                </div>
                                 <span
                                     className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono"
                                     style={{
@@ -109,7 +98,7 @@ export default function ServicesPage() {
                                         color: svc.accent,
                                     }}
                                 >
-                                    {svc.status === 'Operativo' && '● '}{svc.status}
+                                    ● {svc.status}
                                 </span>
                             </div>
 
@@ -123,7 +112,16 @@ export default function ServicesPage() {
                                 {svc.desc}
                             </p>
 
-                            {svc.href ? (
+                            {svc.internal ? (
+                                <Link
+                                    href={svc.href}
+                                    className="inline-flex items-center gap-2 text-sm font-mono transition-all duration-200"
+                                    style={{ color: svc.accent }}
+                                >
+                                    Ver módulo
+                                    <ArrowRight className="w-4 h-4" />
+                                </Link>
+                            ) : (
                                 <a
                                     href={svc.href}
                                     target="_blank"
@@ -134,10 +132,6 @@ export default function ServicesPage() {
                                     Visitar sitio web
                                     <ExternalLink className="w-4 h-4" />
                                 </a>
-                            ) : (
-                                <span className="text-sm font-mono text-graphite-warm/40">
-                                    Próximamente disponible
-                                </span>
                             )}
                         </div>
                     ))}
@@ -165,15 +159,20 @@ export default function ServicesPage() {
                 {/* CTA */}
                 <div className="text-center">
                     <h3 className="font-display text-2xl font-medium text-ink mb-4">
-                        ¿Necesitas orientación sobre qué servicio es para ti?
+                        ¿No sabes por dónde empezar?
                     </h3>
                     <p className="text-graphite-warm/65 mb-8 max-w-2xl mx-auto">
-                        Contáctanos y te ayudamos a navegar el ecosistema
+                        Un diagnóstico de 5 minutos te dice qué necesitas y con qué banda de precio.
                     </p>
-                    <Link href="/contact" className="btn-warm-primary inline-flex">
-                        Contactar
-                        <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/diagnostico" className="btn-warm-primary inline-flex">
+                            Hacer mi diagnóstico
+                            <ArrowRight className="w-4 h-4" />
+                        </Link>
+                        <Link href="/contact" className="btn-ink-ghost inline-flex">
+                            Contactar
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

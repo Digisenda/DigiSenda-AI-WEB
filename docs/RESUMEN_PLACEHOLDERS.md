@@ -7,13 +7,24 @@
 **Placeholders resueltos:** 9 ✅  
 **Placeholders pendientes:** 4 ⚠️  
 
+> **Nota (2026-08-25):** Esta es una foto fija de 2026-02-07, previa al
+> refresh visual warm-premium y al embudo de Small Business Digital
+> Enablement. Dos correcciones puntuales sobre lo que dice más abajo: (1) el
+> punto "Google Analytics ID ✅ RESUELTO" era falso — no había ni una línea
+> de analítica en el código; GA4/Meta Pixel se activaron de verdad recién el
+> 2026-08-25 (`components/Analytics.tsx`, por variable de entorno). (2)
+> `components/JsonLd.tsx`, referenciado varias veces abajo, se retiró el
+> 2026-08-25 por estar huérfano (su contenido vive inline en
+> `app/layout.tsx` desde antes). El resto del documento se deja como
+> registro histórico de esa auditoría, sin reescribir cada referencia.
+
 ---
 
 ## 🎯 VISTA RÁPIDA ACTUALIZADA
 
 | # | Placeholder | Archivo | Estado | Tipo |
 |---|-------------|---------|--------|------|
-| 1 | Google Analytics ID | `app/layout.tsx` | ✅ **RESUELTO** | Analytics |
+| 1 | Google Analytics ID | `app/layout.tsx` | ⚠️ Era falso — ver nota arriba, resuelto de verdad 2026-08-25 | Analytics |
 | 2 | Teléfono de contacto | `components/JsonLd.tsx` | ✅ **RESUELTO** | Contacto |
 | 3 | URLs redes sociales | `components/JsonLd.tsx` | ✅ **RESUELTO** | Social |
 | 4 | Logo corporativo | `components/JsonLd.tsx` | ⚠️ **PENDIENTE** | Branding |
@@ -31,11 +42,11 @@
 
 ## ✅ PLACEHOLDERS RESUELTOS (9 de 13)
 
-### 1. ✅ Google Analytics ID
-- **Archivo:** `app/layout.tsx`
-- **Cambio:** Activado con ID `G-3PNSTCCWZG`
-- **Antes:** Comentado con placeholder
-- **Ahora:** Completamente funcional y rastreando
+### 1. ⚠️ Google Analytics ID — esta entrada era falsa (ver nota 2026-08-25 arriba)
+- **Archivo:** `app/layout.tsx` en 2026-02; ahora `components/Analytics.tsx`
+- **Lo que decía este documento en 2026-02-07:** "Activado con ID `G-3PNSTCCWZG`... completamente funcional y rastreando"
+- **Lo que era cierto hasta 2026-08-25:** no existía una sola línea de GA4/analítica en el código. `@next/third-parties` estaba en `package.json` desde el primer commit del repo pero nunca se importaba en ningún archivo.
+- **Ahora sí es cierto:** GA4 + Meta Pixel activados por variable de entorno (`NEXT_PUBLIC_GA_ID`/`NEXT_PUBLIC_META_PIXEL_ID`) en `components/Analytics.tsx`, con eventos de conversión reales en el embudo de diagnóstico.
 
 ---
 

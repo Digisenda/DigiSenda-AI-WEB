@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin, Github, Youtube, Instagram, Facebook } from 'lucide-react';
+import { MODULOS } from '../lib/enablement';
 
 export default function Footer() {
     return (
@@ -106,10 +107,17 @@ export default function Footer() {
                     <div>
                         <h4 className="text-bone/75 font-body font-semibold mb-5 text-xs uppercase tracking-[0.15em]">Servicios</h4>
                         <ul className="space-y-3 text-sm">
+                            {MODULOS.map((m) => (
+                                <li key={m.slug}>
+                                    <Link
+                                        href={`/services/${m.slug}`}
+                                        className="text-bone/45 hover:text-gold-soft transition-colors"
+                                    >
+                                        {m.title}
+                                    </Link>
+                                </li>
+                            ))}
                             {[
-                                { href: 'https://llc.digisendaai.com/', label: 'LLC Service' },
-                                { href: 'https://web.digisendaai.com/', label: 'Web Services' },
-                                { href: 'https://business.digisendaai.com/', label: 'Marketing Service' },
                                 { href: 'https://tax.digisendaai.com/', label: 'Tax Service' },
                                 { href: 'https://www.synapleads.com/', label: 'SynapLeads' },
                             ].map(({ href, label }) => (
@@ -134,6 +142,8 @@ export default function Footer() {
                             {[
                                 { href: '/about', label: 'Nosotros' },
                                 { href: '/services', label: 'Servicios' },
+                                { href: '/diagnostico', label: 'Diagnóstico gratuito' },
+                                { href: '/programas', label: 'Programas institucionales' },
                                 { href: '/blog', label: 'Blog' },
                                 { href: '/contact', label: 'Contacto' },
                             ].map(({ href, label }) => (

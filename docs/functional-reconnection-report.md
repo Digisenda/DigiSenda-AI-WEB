@@ -1,4 +1,11 @@
 # 🔧 REPORTE DE RECONEXIÓN FUNCIONAL
+
+> **HISTÓRICO.** Documenta la decisión de 2026-03-06 de retirar toda
+> captación de leads del sitio madre ("cada satélite captura sus propios
+> leads"). Esa decisión se revirtió explícitamente el 2026-08-25 al
+> verificarse que 3 de los 4 satélites nunca llegaron a existir — ver
+> `README.md` y el commit que construyó `/diagnostico`. Conservado como
+> registro de esa decisión y su razonamiento original.
 ## DigiSenda AI - Hub Central del Ecosistema
 
 **Fecha de refactorización:** 2026-03-06  

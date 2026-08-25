@@ -1,12 +1,14 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://digisendaai.com';
+
     return {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: '/gracias',
         },
-        sitemap: 'https://digisendaai.com/sitemap.xml',
+        sitemap: `${baseUrl}/sitemap.xml`,
     };
 }

@@ -74,8 +74,9 @@ export default function PrivacyPage() {
                     We use cookies and similar tracking technologies to:
                 </p>
                 <ul style={{ color: "var(--text-primary)", marginLeft: "2rem", marginBottom: "1rem", lineHeight: "1.8" }}>
-                    <li>Maintain session information</li>
+                    <li>Maintain session information, including your progress through the self-assessment diagnostic tool</li>
                     <li>Analyze website traffic and user behavior (via Google Analytics)</li>
+                    <li>Measure advertising performance and build retargeting audiences (via Meta Pixel)</li>
                     <li>Improve website functionality and user experience</li>
                 </ul>
                 <p style={{ color: "var(--text-primary)", marginBottom: "1rem", lineHeight: "1.6" }}>

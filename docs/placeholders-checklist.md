@@ -1,5 +1,9 @@
 # Checklist de Placeholders
 
+> **HISTÓRICO.** Lista placeholders del diseño "AI Corporate Nexus",
+> abandonado en el refresh warm-premium (2026-08). Ver `docs/design-system.md`
+> para la paleta y tipografía vigentes.
+
 Este archivo lista todos los elementos temporales creados durante el desarrollo del diseño corporativo "AI Corporate Nexus".
 
 ### 1. Imágenes Decorativas en SynapLeads

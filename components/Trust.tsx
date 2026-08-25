@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Shield, Brain, Users, Server, ArrowRight, Check } from 'lucide-react';
@@ -196,14 +197,14 @@ export default function Trust() {
 
                         {/* Right: CTAs */}
                         <div className="flex flex-col gap-4 w-full md:w-auto md:min-w-[220px]">
-                            <a
-                                href="/services"
+                            <Link
+                                href="/diagnostico"
                                 className="btn-warm-primary group justify-center"
                             >
-                                Crear mi LLC
+                                Hacer mi diagnóstico
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="/contact"
                                 className="btn-ink-ghost group justify-center"
                                 style={{
@@ -212,7 +213,7 @@ export default function Trust() {
                                 }}
                             >
                                 Hablar con el equipo
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

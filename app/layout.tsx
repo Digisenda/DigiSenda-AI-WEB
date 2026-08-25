@@ -3,6 +3,7 @@ import { Fraunces, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Analytics from '../components/Analytics';
 
 // ── Tipografías v3 (Editorial Warm-Premium) ──
 // Display: Fraunces — serif moderna con personalidad editorial.
@@ -102,6 +103,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

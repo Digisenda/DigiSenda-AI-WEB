@@ -2,14 +2,21 @@
 
 ## 🚀 Estado del Proyecto
 
-**Versión:** 2.0 (Production-Ready)  
+**Versión:** 3.0  
 **Framework:** Next.js 16.1.6 (App Router)  
-**Estado:** ✅ **100% listo para producción**  
-**Última actualización:** 2026-03-06  
-**Última auditoría:** 2026-03-06
+**Estado:** En producción, en desarrollo activo — no es un estado "final"  
+**Última actualización:** 2026-08-25  
+**Última auditoría:** 2026-08-25 (`digisenda-bexar/auditoria-arquitectura-marca-repos-dominios.md`)
 
-### ✨ Actualización Marzo 2026
-Gran actualización de contenido, UX y marca implementada. Ver [CHANGELOG](#-changelog) para detalles completos.
+### ✨ Actualización 2026-08
+Refresh visual completo a la estética "Warm-Premium Editorial" (ver
+`docs/design-system.md`) y construcción del embudo de venta **Small
+Business Digital Enablement** (`/services/[modulo]`, `/diagnostico`,
+`/programas`) conectado al CRM corporativo (`digisenda-tax-admin`). Cierra
+el hallazgo de la auditoría de 2026-08-25: 3 de los 4 subdominios de
+ecosistema publicados (`llc.`/`web.`/`business.digisendaai.com`) resultaron
+ser NXDOMAIN — nunca se construyó el contenido detrás de ellos. Se
+resolvió con contenido real dentro de este mismo sitio, no con DNS nuevo.
 
 ---
 
@@ -43,7 +50,7 @@ DigiSenda AI es una plataforma web tecnológica corporativa diseñada para ayuda
 - **Metadata:** Next.js Metadata API
 - **Structured Data:** Schema.org JSON-LD
 - **Sitemap:** Generado dinámicamente
-- **Analytics:** Google Analytics 4 (ready)
+- **Analytics:** Google Analytics 4 + Meta Pixel, activados por `NEXT_PUBLIC_GA_ID`/`NEXT_PUBLIC_META_PIXEL_ID` (ver `.env.example`) — sin esas env vars en Vercel, no se cargan
 
 ### Deployment
 - **Plataforma:** Vercel (recomendado)
@@ -130,60 +137,52 @@ digisenda-ai/
 
 ---
 
-## 🎨 Sistema de Diseño "AI Corporate Nexus"
+## 🎨 Sistema de Diseño "Warm-Premium Editorial" (v3)
 
-### Paleta de Colores
+Reemplaza el diseño anterior "AI Corporate Nexus" (paleta oscura Deep
+Space/Neural Blue/AI Cyan), abandonado en el refresh de 2026-08. Resumen
+rápido — el detalle completo vive en [`docs/design-system.md`](./docs/design-system.md):
 
-```css
-Deep Space:  #0B0F19  /* Fondo principal oscuro */
-Neural Blue: #2563EB  /* Azul tecnológico */
-AI Cyan:     #06B6D4  /* Cyan para acentos */
-Silver:      #CBD5F5  /* Texto principal */
-Graphite:    #1E293B  /* Bordes y secundarios */
-```
-
-### Tipografía
-
-- **Headings:** Space Grotesk (Google Fonts)
-- **Body:** Inter (Google Fonts)
-- **Monospace:** IBM Plex Mono (Google Fonts)
-
-### Componentes Visuales
-
-- **Glass panels** con backdrop-blur
-- **Botones magnéticos** con efecto glow
-- **Gradientes de texto** Neural Blue → AI Cyan
-- **Textura de ruido** SVG en toda la página (opacity: 0.03)
+- **Paleta:** bases claras (ivory/sand/bone), contraste en tinta oscura
+  (`ink`), acentos quirúrgicos por pilar (gold-soft, terracotta, sage,
+  plum, cyan-controlled).
+- **Tipografía:** Fraunces (display, con énfasis en cursiva), Plus Jakarta
+  Sans (body), JetBrains Mono (UI/mono).
+- **Componentes:** `.editorial-card`, `.btn-warm-primary`,
+  `.eyebrow-warm`, ritmo de secciones ivory→sand→bone→ink.
 
 ---
 
 ## ⚠️ Elementos Pendientes para Producción
 
-### 🔴 Críticos (Bloquean Producción)
+*(Actualizado 2026-08-25 — los 4 primeros puntos de la versión anterior de
+esta lista ya estaban resueltos y quedaron confirmados aquí; el webhook n8n
+nunca se implementó porque la arquitectura de captación cambió por
+completo — ver abajo.)*
 
-1. **Webhook n8n** - Formulario de contacto no funcional  
-   📍 `app/contact/page.tsx` líneas 16-23  
-   ⏰ Tiempo estimado: 2-4 horas
+### 🟢 Ya resueltos (confirmados 2026-08-25)
+- Google Analytics / Meta Pixel — activados por env en `components/Analytics.tsx`.
+- Imagen Open Graph — existe en `/public/og-image.png`.
+- Logo en Navbar/Footer — `next/image` con `/logo.png`, ya no es texto.
+- Captación de leads del formulario — reemplaza por completo el plan de
+  "webhook n8n" de la lista anterior: `/diagnostico` → `/api/lead` →
+  reenvío server-to-server al CRM (`digisenda-tax-admin`). Ver
+  `docs/functional-reconnection-report.md` (marcado histórico) para el
+  contexto de por qué se había quitado la captación del sitio madre, y por
+  qué esa decisión se revirtió.
 
-2. **Google Analytics** - Sin tracking de usuarios  
-   📍 `app/layout.tsx` líneas 30-31 (comentado)  
-   ⏰ Tiempo estimado: 15 minutos
-
-### 🟡 Alta Prioridad (Mejoran Significativamente)
-
-3. **Imagen Open Graph** - Social sharing sin imagen  
-   📍 `/public/og-image.jpg` (no existe)  
-   ⏰ Tiempo estimado: 30-60 minutos
-
-4. **Logo en Navbar/Footer** - Usar imagen vs texto  
-   📍 `components/Navbar.tsx`, `Footer.tsx`  
-   ⏰ Tiempo estimado: 20 minutos
-
-5. **Contenido de Blog** - 9 posts adicionales  
-   📍 `/content` (solo 1 post de 10 recomendados)  
-   ⏰ Tiempo estimado: 8-16 horas
-
-**Ver guía completa:** `/docs/placeholders-guide.md`
+### 🟡 Sigue pendiente
+1. **Contenido de Blog** — solo 1 post de los ~10 recomendados, y ese post
+   (`content/welcome.mdx`) está en inglés en un sitio `lang="es"`.
+   📍 `/content`
+2. **Casos de éxito / testimonios** — `components/SuccessStories.tsx` y
+   `components/Trust.tsx` usan métricas no sustanciadas ("100%
+   compliance", "+45%"/"triplicó" — internamente contradictorio). No
+   reemplazar por afirmaciones inventadas; el taller de alfabetización
+   digital propuesto en `digisenda-bexar/docs/bexar/propuesta-talleres-digitales-BORRADOR.md`
+   está pensado justo para generar casos reales.
+3. **CAPTCHA anti-spam** en los formularios — hoy solo hay honeypot +
+   rate limit en memoria (no distribuido entre instancias).
 
 ---
 
@@ -291,12 +290,16 @@ Editar `components/Hero.tsx` (líneas 66-73):
 
 | Ruta | Estado | Descripción |
 |------|--------|-------------|
-| `/` | ✅ | Landing con 5 secciones animadas |
+| `/` | ✅ | Landing con secciones animadas |
 | `/about` | ✅ | Página "Nuestra Visión" |
-| `/services` | ✅ | 5 servicios detallados |
+| `/services` | ✅ | Índice de servicios (4 módulos internos + Tax Service/SynapLeads externos) |
+| `/services/[modulo]` | ✅ | Página por módulo de Small Business Digital Enablement |
+| `/diagnostico` | ✅ | Diagnóstico con Readiness Score → Action Plan → captura |
+| `/programas` | ✅ | Ruta institucional (Bexar County, SBDC, nonprofits, cohortes) |
+| `/gracias` | ✅ | Confirmación post-envío (`noindex`) |
 | `/blog` | ✅ | Sistema de blog MDX (1 post) |
 | `/blog/[slug]` | ✅ | Posts individuales dinámicos |
-| `/contact` | ⚠️ | Formulario (webhook pendiente) |
+| `/contact` | ✅ | Contacto directo + enlaces al ecosistema |
 | `/privacy` | ✅ | Política de privacidad completa |
 | `/terms` | ✅ | Términos de servicio completos |
 | `/disclaimer` | ✅ | Disclaimer legal |
@@ -411,25 +414,28 @@ vercel --prod
 - [x] Jerarquía de servicios equilibrada
 - [x] 🚀 Listo para producción
 
-### Fase 2: Contenido (Próximo - Semanas 2-4)
-- [ ] Configurar webhook n8n para formulario de contacto
-- [ ] Activar Google Analytics
-- [ ] Generar 9 posts de blog adicionales
-- [ ] Reemplazar casos de éxito placeholder con contenido real
-- [ ] Agregar testimonios de clientes (3-5)
+### ✅ Fase 2: Refresh visual + embudo de venta (Completada - 2026-08-25)
+- [x] Refresh visual completo a "Warm-Premium Editorial" v3
+- [x] ~~Webhook n8n~~ — superado: captación real vía `/diagnostico` → `/api/lead` → CRM corporativo
+- [x] Google Analytics + Meta Pixel activados (por env, con eventos de conversión reales)
+- [x] Embudo Small Business Digital Enablement: `/services/[modulo]` (4 módulos), diagnóstico con Readiness Score, `/programas` (ruta institucional)
+- [x] Integración con CRM — `digisenda-tax-admin`, lead → `Contact` + `Opportunity` en `BEXAR`
+- [x] Rate limiting básico en formularios (honeypot + límite en memoria)
+- [ ] Generar 9 posts de blog adicionales (`content/` sigue con solo 1, en inglés)
+- [ ] Reemplazar casos de éxito placeholder con contenido real (no sustanciado hoy)
+- [ ] Agregar testimonios de clientes reales (3-5)
 - [ ] Crear FAQ page (20-30 preguntas)
 
-### Fase 3: Optimización (Mes 2)
-- [ ] Rate limiting en formulario
-- [ ] CAPTCHA anti-spam
+### Fase 3: Optimización (siguiente)
+- [ ] CAPTCHA anti-spam (rate limit actual es solo en memoria, no distribuido)
 - [ ] Optimizaciones de performance
 - [ ] A/B testing de CTAs
+- [ ] Redirección 301 de `llc.`/`web.`/`business.digisendaai.com` a las rutas internas nuevas (decisión pendiente de Juan, DNS en Cloudflare)
 
-### Fase 4: Escalamiento (Meses 2-3)
+### Fase 4: Escalamiento
 - [ ] Panel de administración
 - [ ] Dashboard de analytics
 - [ ] Sistema de autenticación
-- [ ] Integración con CRM
 - [ ] Internacionalización (i18n)
 
 ---
