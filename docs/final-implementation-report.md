@@ -1,5 +1,9 @@
 # DigiSenda AI — Reporte Final de Implementación
 
+> **HISTÓRICO (2026-03-06).** Describe el estado del repo antes del refresh
+> visual warm-premium (2026-08) y del embudo de Small Business Digital
+> Enablement (2026-08-25). Conservado como registro, no como estado actual.
+
 **Fecha:** 2026-03-06  
 **Rama:** genspark_ai_developer  
 **Documento base:** site-content-update.md

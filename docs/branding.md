@@ -1,26 +1,52 @@
 # Branding & Identity: DigiSenda AI
 
-## Misión de Marca
-DigiSenda AI es una plataforma tecnológica corporativa que ayuda a emprendedores a lanzar y escalar negocios en Estados Unidos. No es un sitio web común, sino una experiencia digital moderna con narrativa visual y estética tecnológica.
+## Misión de marca
 
-## Pilares de Servicio
-1. **Lanzar su negocio**: Creación de LLC y obtención de EIN.
-2. **Crear su presencia digital**: Desarrollo web, Google Business.
-3. **Generar clientes**: Marketing digital, plataforma SynapLeads.
-4. **Gestionar sus finanzas**: Preparación de impuestos (Taxes) y Bookkeeping.
+DigiSenda AI es el hub central de un ecosistema de servicios para
+emprendedores hispanohablantes que lanzan y escalan negocios en Estados
+Unidos: formalización legal, presencia digital, adquisición de clientes y
+finanzas.
 
-## Estética "AI Corporate Nexus"
-El mood visual está inspirado en grandes empresas tecnológicas líderes como Stripe, Vercel, OpenAI y Linear. 
-- **Temas**: Tecnología corporativa, infraestructura digital, interfaces de inteligencia artificial, arquitectura tecnológica moderna.
+## Small Business Digital Enablement — programa central
+
+Desde 2026-08, el eje comercial de DigiSenda AI es **Small Business Digital
+Enablement**, un sistema modular de 4 módulos (ver Arquitectura Comercial
+v0.1, Notion — "DigiSenda AI — Business Development & Bexar County 2026"),
+implementado en `digisendaai.com` como `/services/[modulo]` + el diagnóstico
+en `/diagnostico`:
+
+1. **Business Foundation** — LLC, EIN, checklist de cumplimiento inicial.
+2. **Digital Presence** — sitio web, Google Business Profile, correo profesional.
+3. **Customer Acquisition** — captación, campañas, seguimiento comercial.
+4. **Digital Operations & Automation** — CRM, formularios, automatización.
+
+**Tax Service** (`tax.digisendaai.com`) y **SynapLeads** (`synapleads.com`)
+son líneas complementarias, operadas y capturadas de forma independiente —
+no forman parte automática de un paquete de Enablement.
+
+## Estética "Warm-Premium Editorial" (v3)
+
+Reemplaza la estética anterior "AI Corporate Nexus" (paleta oscura,
+inspirada en Stripe/Vercel/OpenAI/Linear), retirada en el refresh visual de
+2026-08. El mood actual es editorial cálido: fondos claros marfil/arena/hueso,
+contraste puntual en tinta oscura, acentos quirúrgicos por pilar, tipografía
+serif display (Fraunces) con énfasis en cursiva. Ver
+[`docs/design-system.md`](./design-system.md) para el detalle técnico
+completo (colores, tipografía, clases utilitarias) — ese documento es la
+fuente de verdad de implementación; este documento cubre solo la identidad
+de marca y el posicionamiento.
 
 ## Tipografía
-- **Headings**: Space Grotesk
-- **Body**: Inter
-- **Data/UI**: IBM Plex Mono
 
-## Colores Base
-- **Deep Space**: `#0B0F19`
-- **Neural Blue**: `#2563EB`
-- **AI Cyan**: `#06B6D4`
-- **Silver**: `#CBD5F5`
-- **Graphite**: `#1E293B`
+- **Display**: Fraunces
+- **Body**: Plus Jakarta Sans
+- **Mono/UI**: JetBrains Mono
+
+## Colores base
+
+- **Ivory** `#F7F3EC`
+- **Ink** `#0E1A1F`
+- **Gold-soft** `#C9A961`
+- **Terracotta** `#C76F4A`
+
+(paleta completa con acentos por pilar en `docs/design-system.md`)

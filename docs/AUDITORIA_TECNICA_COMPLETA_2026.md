@@ -1,4 +1,8 @@
 # 🔍 AUDITORÍA TÉCNICA COMPLETA DEL REPOSITORIO DIGISENDA AI
+
+> **HISTÓRICO.** Describe el estado del repo antes del refresh visual
+> warm-premium (2026-08) y del embudo de Small Business Digital Enablement
+> (2026-08-25). Conservado como registro, no como estado actual.
 ## Informe de Arquitectura y Estado del Proyecto
 
 **Fecha de auditoría:** 2026-03-06  

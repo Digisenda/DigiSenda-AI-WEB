@@ -1,4 +1,8 @@
 # 🎯 GUÍA PRÁCTICA DE PLACEHOLDERS PARA PRODUCCIÓN
+
+> **HISTÓRICO.** Guía de placeholders del diseño "AI Corporate Nexus",
+> abandonado en el refresh warm-premium (2026-08). Ver `docs/design-system.md`
+> para el estado vigente.
 ## DigiSenda AI - Lista Completa de Elementos a Completar
 
 **Última actualización:** 2026-03-06  
