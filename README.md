@@ -183,6 +183,13 @@ completo — ver abajo.)*
    está pensado justo para generar casos reales.
 3. **CAPTCHA anti-spam** en los formularios — hoy solo hay honeypot +
    rate limit en memoria (no distribuido entre instancias).
+4. **Verificar modo de Cloudflare del dominio** (hallazgo de `/security-review`
+   en `digisenda-tax-services`, confianza 0.5 — no bloqueante, mismo patrón
+   aplica aquí): `app/api/lead/route.ts` toma el último IP de
+   `x-forwarded-for` asumiendo que Vercel es el primer salto real. Si
+   Cloudflare está en modo proxy, el IP guardado como evidencia de
+   consentimiento en el CRM sería el de Cloudflare, no el del visitante —
+   si es proxy, cambiar a `CF-Connecting-IP`.
 
 ---
 
