@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { MODULOS, type ModuloId } from '../lib/enablement';
 import { captureUtm, getUtm } from '../lib/utm';
+import { trackEvent, trackLead } from '../lib/analytics';
 
 type Answer = 0 | 50 | 100;
 
@@ -88,17 +89,22 @@ export default function DiagnosticoWizard() {
 
     useEffect(() => {
         captureUtm();
+        let resumed = false;
         try {
             const raw = sessionStorage.getItem(STORAGE_KEY);
             if (raw) {
                 const saved = JSON.parse(raw) as { step: number; answers: Record<string, Answer> };
                 setStep(saved.step ?? 0);
                 setAnswers(saved.answers ?? {});
+                resumed = (saved.step ?? 0) > 0 || Object.keys(saved.answers ?? {}).length > 0;
             }
         } catch {
             // ignore malformed storage
         }
         setHydrated(true);
+        if (!resumed) {
+            trackEvent('diagnostico_start');
+        }
     }, []);
 
     useEffect(() => {
@@ -156,7 +162,15 @@ export default function DiagnosticoWizard() {
     function answer(value: Answer) {
         const q = QUESTIONS[step];
         setAnswers((prev) => ({ ...prev, [q.id]: value }));
+        trackEvent('diagnostico_step', { questionId: q.id, step: step + 1, value });
         setStep((s) => s + 1);
+
+        if (step + 1 === totalSteps) {
+            // Deferred to next tick so `scores`/`nivel` reflect this last answer.
+            queueMicrotask(() => {
+                trackEvent('diagnostico_complete');
+            });
+        }
     }
 
     function toggleChannel(value: string) {
@@ -207,6 +221,7 @@ export default function DiagnosticoWizard() {
                 throw new Error('request_failed');
             }
 
+            trackLead({ program: 'WEB_DIAGNOSTICO_2026', nivel });
             sessionStorage.removeItem(STORAGE_KEY);
             router.push('/gracias');
         } catch {

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
 import { getUtm } from '../lib/utm';
+import { trackLead } from '../lib/analytics';
 
 const PROGRAM_TYPES = [
     { value: 'INSTITUTIONAL_BEXAR_SBED', label: 'Bexar County SBED / SBOC' },
@@ -77,6 +78,7 @@ export default function ProgramasForm() {
                 throw new Error('request_failed');
             }
 
+            trackLead({ program: programType, institutional: true });
             router.push('/gracias');
         } catch {
             setStatus('error');
