@@ -71,12 +71,26 @@ function nivelFor(scores: Record<ModuloId, number>): string | null {
     return null;
 }
 
+function readSavedState(): { step: number; answers: Record<string, Answer> } {
+    if (typeof window === 'undefined') return { step: 0, answers: {} };
+    try {
+        const raw = sessionStorage.getItem(STORAGE_KEY);
+        if (!raw) return { step: 0, answers: {} };
+        const saved = JSON.parse(raw) as { step: number; answers: Record<string, Answer> };
+        return { step: saved.step ?? 0, answers: saved.answers ?? {} };
+    } catch {
+        return { step: 0, answers: {} };
+    }
+}
+
 export default function DiagnosticoWizard() {
     const router = useRouter();
     const stepRef = useRef<HTMLDivElement>(null);
 
-    const [step, setStep] = useState(0);
-    const [answers, setAnswers] = useState<Record<string, Answer>>({});
+    const [step, setStep] = useState<number>(() => readSavedState().step);
+    const [answers, setAnswers] = useState<Record<string, Answer>>(
+        () => readSavedState().answers,
+    );
     const [hydrated, setHydrated] = useState(false);
 
     const [name, setName] = useState('');
@@ -89,22 +103,15 @@ export default function DiagnosticoWizard() {
 
     useEffect(() => {
         captureUtm();
-        let resumed = false;
-        try {
-            const raw = sessionStorage.getItem(STORAGE_KEY);
-            if (raw) {
-                const saved = JSON.parse(raw) as { step: number; answers: Record<string, Answer> };
-                setStep(saved.step ?? 0);
-                setAnswers(saved.answers ?? {});
-                resumed = (saved.step ?? 0) > 0 || Object.keys(saved.answers ?? {}).length > 0;
-            }
-        } catch {
-            // ignore malformed storage
-        }
         setHydrated(true);
+        const resumed = step > 0 || Object.keys(answers).length > 0;
         if (!resumed) {
             trackEvent('diagnostico_start');
         }
+        // Intentionally runs once on mount only — `step`/`answers` are read
+        // from their initial (possibly sessionStorage-restored) values here,
+        // not tracked reactively.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -161,14 +168,24 @@ export default function DiagnosticoWizard() {
 
     function answer(value: Answer) {
         const q = QUESTIONS[step];
-        setAnswers((prev) => ({ ...prev, [q.id]: value }));
+        const nextAnswers = { ...answers, [q.id]: value };
+        setAnswers(nextAnswers);
         trackEvent('diagnostico_step', { questionId: q.id, step: step + 1, value });
         setStep((s) => s + 1);
 
         if (step + 1 === totalSteps) {
-            // Deferred to next tick so `scores`/`nivel` reflect this last answer.
-            queueMicrotask(() => {
-                trackEvent('diagnostico_complete');
+            // Computed directly from nextAnswers (not the memoized `scores`/
+            // `nivel` in this closure) because those are derived from the
+            // answers state before this update — React hasn't re-rendered
+            // yet, so the memo wouldn't reflect this last answer either way.
+            const finalScores = {} as Record<ModuloId, number>;
+            for (const m of MODULOS) {
+                finalScores[m.id] = scoreFor(m.id, nextAnswers);
+            }
+            trackEvent('diagnostico_complete', {
+                scores: finalScores,
+                nivel: nivelFor(finalScores),
+                modulosRecomendados: MODULOS.filter((m) => finalScores[m.id] < 60).map((m) => m.id),
             });
         }
     }
@@ -193,6 +210,7 @@ export default function DiagnosticoWizard() {
         setStatus('submitting');
         setErrorMessage(null);
 
+        let succeeded = false;
         try {
             const res = await fetch('/api/lead', {
                 method: 'POST',
@@ -217,17 +235,24 @@ export default function DiagnosticoWizard() {
                 }),
             });
 
-            if (!res.ok) {
-                throw new Error('request_failed');
-            }
-
-            trackLead({ program: 'WEB_DIAGNOSTICO_2026', nivel });
-            sessionStorage.removeItem(STORAGE_KEY);
-            router.push('/gracias');
+            succeeded = res.ok;
         } catch {
+            succeeded = false;
+        }
+
+        if (!succeeded) {
             setStatus('error');
             setErrorMessage('No pudimos enviar tu diagnóstico. Intenta de nuevo o llámanos directamente.');
+            return;
         }
+
+        // Outside the try/catch above: the lead is already saved in the CRM
+        // at this point, so a throw from analytics or navigation must never
+        // be reported back to the visitor as a failed submission — that
+        // would prompt a resubmit and create a duplicate lead.
+        trackLead({ program: 'WEB_DIAGNOSTICO_2026', nivel });
+        sessionStorage.removeItem(STORAGE_KEY);
+        router.push('/gracias');
     }
 
     if (!hydrated) {

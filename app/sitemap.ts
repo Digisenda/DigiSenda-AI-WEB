@@ -4,7 +4,7 @@ import { MODULOS } from '@/lib/enablement';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const posts = getSortedPostsData();
-    const baseUrl = 'https://digisendaai.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://digisendaai.com';
 
     const blogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,

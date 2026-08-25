@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Check, Loader2 } from 'lucide-react';
-import { getUtm } from '../lib/utm';
+import { captureUtm, getUtm } from '../lib/utm';
 import { trackLead } from '../lib/analytics';
 
 const PROGRAM_TYPES = [
@@ -33,6 +33,10 @@ export default function ProgramasForm() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+    useEffect(() => {
+        captureUtm();
+    }, []);
+
     function toggleChannel(value: string) {
         setChannels((prev) => {
             const next = new Set(prev);
@@ -53,6 +57,7 @@ export default function ProgramasForm() {
         setStatus('submitting');
         setErrorMessage(null);
 
+        let succeeded = false;
         try {
             const res = await fetch('/api/lead', {
                 method: 'POST',
@@ -69,21 +74,28 @@ export default function ProgramasForm() {
                     intake: {
                         pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
                         utm: getUtm(),
-                        modulosRecomendados: notes ? [notes.slice(0, 200)] : undefined,
+                        notes: notes || undefined,
                     },
                 }),
             });
 
-            if (!res.ok) {
-                throw new Error('request_failed');
-            }
-
-            trackLead({ program: programType, institutional: true });
-            router.push('/gracias');
+            succeeded = res.ok;
         } catch {
+            succeeded = false;
+        }
+
+        if (!succeeded) {
             setStatus('error');
             setErrorMessage('No pudimos enviar tu solicitud. Intenta de nuevo o escríbenos a admin@digisendaai.com.');
+            return;
         }
+
+        // Outside the try/catch above: the lead is already saved in the CRM
+        // at this point, so a throw from analytics or navigation must never
+        // be reported back to the visitor as a failed submission — that
+        // would prompt a resubmit and create a duplicate lead.
+        trackLead({ program: programType, institutional: true });
+        router.push('/gracias');
     }
 
     return (
