@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import FloatingMockupStack from './FloatingMockupStack';
 
@@ -125,14 +126,14 @@ export default function Hero() {
 
                         {/* CTAs */}
                         <div className="hero-anim flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-12">
-                            <a href="/services" className="btn-warm-primary group">
-                                Ver cómo funciona
+                            <Link href="/diagnostico" className="btn-warm-primary group">
+                                Hacer mi diagnóstico
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </a>
-                            <a href="/contact" className="btn-ink-ghost group">
+                            </Link>
+                            <Link href="/contact" className="btn-ink-ghost group">
                                 Hablar con un asesor
                                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Pilares cualitativos */}

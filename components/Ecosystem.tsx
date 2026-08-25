@@ -1,6 +1,7 @@
 'use client';
 
 import { useLayoutEffect, useRef } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Building2, Globe2, LineChart, FileText, ArrowUpRight } from 'lucide-react';
@@ -14,7 +15,7 @@ const ecosystemData = [
         title: 'Crear empresa',
         sub: 'LLC + EIN',
         desc: 'Registramos tu LLC en EE.UU., obtenemos tu EIN y te dejamos estructurado para operar desde el primer día.',
-        href: 'https://llc.digisendaai.com/',
+        href: '/services/fundacion',
         accent: '#6F8F7B',          // sage
         accentBg: 'rgba(111,143,123,0.10)',
         accentBorder: 'rgba(111,143,123,0.28)',
@@ -26,7 +27,7 @@ const ecosystemData = [
         title: 'Presencia digital',
         sub: 'Web + Google Business',
         desc: 'Diseñamos tu sitio web profesional y optimizamos tu perfil de Google para que tus clientes te encuentren.',
-        href: 'https://web.digisendaai.com/',
+        href: '/services/presencia',
         accent: '#3A8C9C',          // cyan-controlled
         accentBg: 'rgba(58,140,156,0.10)',
         accentBorder: 'rgba(58,140,156,0.28)',
@@ -38,7 +39,7 @@ const ecosystemData = [
         title: 'Generación de clientes',
         sub: 'Marketing + Leads',
         desc: 'Activamos campañas y flujos que atraen y califican oportunidades reales para tu negocio.',
-        href: 'https://business.digisendaai.com/',
+        href: '/services/captacion',
         accent: '#5B4A6B',          // plum
         accentBg: 'rgba(91,74,107,0.10)',
         accentBorder: 'rgba(91,74,107,0.28)',
@@ -167,16 +168,27 @@ export default function Ecosystem() {
                             </p>
 
                             {/* CTA link */}
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 text-xs font-mono transition-all duration-300 opacity-50 group-hover:opacity-100 group-hover:gap-2"
-                                style={{ color: item.accent }}
-                            >
-                                Conocer más
-                                <ArrowUpRight className="w-3.5 h-3.5" />
-                            </a>
+                            {item.href.startsWith('/') ? (
+                                <Link
+                                    href={item.href}
+                                    className="inline-flex items-center gap-1.5 text-xs font-mono transition-all duration-300 opacity-50 group-hover:opacity-100 group-hover:gap-2"
+                                    style={{ color: item.accent }}
+                                >
+                                    Conocer más
+                                    <ArrowUpRight className="w-3.5 h-3.5" />
+                                </Link>
+                            ) : (
+                                <a
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 text-xs font-mono transition-all duration-300 opacity-50 group-hover:opacity-100 group-hover:gap-2"
+                                    style={{ color: item.accent }}
+                                >
+                                    Conocer más
+                                    <ArrowUpRight className="w-3.5 h-3.5" />
+                                </a>
+                            )}
 
                             {/* Bottom accent line */}
                             <div
