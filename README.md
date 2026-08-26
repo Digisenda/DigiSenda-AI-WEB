@@ -164,14 +164,25 @@ completo — ver abajo.)*
 - Google Analytics / Meta Pixel — activados por env en `components/Analytics.tsx`.
 - Imagen Open Graph — existe en `/public/og-image.png`.
 - Logo en Navbar/Footer — `next/image` con `/logo.png`, ya no es texto.
-- Captación de leads del formulario — reemplaza por completo el plan de
-  "webhook n8n" de la lista anterior: `/diagnostico` → `/api/lead` →
-  reenvío server-to-server al CRM (`digisenda-tax-admin`). Ver
+- Captación de leads del formulario, **en código** — reemplaza por completo
+  el plan de "webhook n8n" de la lista anterior: `/diagnostico` →
+  `/api/lead` → reenvío server-to-server al CRM (`digisenda-tax-admin`). Ver
   `docs/functional-reconnection-report.md` (marcado histórico) para el
   contexto de por qué se había quitado la captación del sitio madre, y por
-  qué esa decisión se revirtió.
+  qué esa decisión se revirtió. **El código está resuelto; la configuración
+  en Vercel no — ver ítem 0 abajo.**
 
 ### 🟡 Sigue pendiente
+
+**Lista completa de prioridades del ecosistema (todos los repos + Notion) vive en `digisenda-bexar/CLAUDE.md` §"Estado y prioridades" — actualizada 2026-08-26.**
+
+0. 🔴 **Crítico:** este proyecto no tiene ninguna variable de entorno
+   configurada en Vercel (confirmado 2026-08-26 con `vercel env ls`: cero
+   variables). Sin `LEAD_INTAKE_URL`/`LEAD_INTAKE_TOKEN` — sin fallback en
+   el código — cualquier envío real de `/diagnostico` o `/programas` falla
+   en silencio del lado del servidor; el lead nunca llega al CRM. Cargar
+   también `NEXT_PUBLIC_GA_ID`/`NEXT_PUBLIC_META_PIXEL_ID` (estos sí tienen
+   fallback a los valores de producción, no bloquean nada si se omiten).
 1. **Contenido de Blog** — solo 1 post de los ~10 recomendados, y ese post
    (`content/welcome.mdx`) está en inglés en un sitio `lang="es"`.
    📍 `/content`
